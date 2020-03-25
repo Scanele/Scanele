@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>office安装</title>
+      <link href="/2020/03/25/office-an-zhuang/"/>
+      <url>/2020/03/25/office-an-zhuang/</url>
+      
+        <content type="html"><![CDATA[<h1 id="解决office自定义安装问题"><a href="#解决office自定义安装问题" class="headerlink" title="解决office自定义安装问题"></a>解决office自定义安装问题</h1><p>当我们需要安装office时，office默认会帮我们安装其所有功能，比如Access、OneNote等，但我们有时只想安装其中的Word、Excel、PowerPoint，那需要怎么做呢？</p><h3 id="一、安装DAEMON-Tools-Lite"><a href="#一、安装DAEMON-Tools-Lite" class="headerlink" title="一、安装DAEMON Tools Lite"></a>一、安装DAEMON Tools Lite</h3><p><a href="https://daemon-tools-lite.en.softonic.com/download" target="_blank" rel="noopener">daemon tools</a>是一个的虚拟光驱工具，当安装office时会用到，安装完成后将office加载进来，比如我加载后的盘符为G盘。</p><h3 id="二、安装微软官方管理器office-deployment-tool"><a href="#二、安装微软官方管理器office-deployment-tool" class="headerlink" title="二、安装微软官方管理器office deployment tool"></a>二、安装微软官方管理器office deployment tool</h3><p>下载 <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117" target="_blank" rel="noopener">Office 部署工具</a>后，双击 Officedeploymenttool 执行 (.exe) 文件以解压缩 ODT  文件。完成后，解压到的文件夹中应该有多个文件： setup.exe 和一些示例 configuration.xml  文件，而我们真正需要的是configuration-Office365-x64.xml这个文件。</p><h3 id="三、修改configuration-Office365-x64-xml文件"><a href="#三、修改configuration-Office365-x64-xml文件" class="headerlink" title="三、修改configuration-Office365-x64.xml文件"></a>三、修改configuration-Office365-x64.xml文件</h3><pre><code>&lt;Configuration&gt;  &lt;Add SourcePath=&quot;G:\&quot; OfficeClientEdition=&quot;64&quot; &gt;  //G为虚拟镜像位置,daemon tools加载office的盘符    &lt;Product ID=&quot;ProPlusRetail&quot;&gt;        &lt;Language ID=&quot;zh-CN&quot; /&gt;//选择语言        &lt;ExcludeApp ID=&quot;Access&quot; /&gt;        &lt;ExcludeApp ID=&quot;Groove&quot; /&gt;        &lt;ExcludeApp ID=&quot;InfoPath&quot; /&gt;        &lt;ExcludeApp ID=&quot;Lync&quot; /&gt;        &lt;ExcludeApp ID=&quot;OneNote&quot; /&gt;        &lt;ExcludeApp ID=&quot;Outlook&quot; /&gt;        &lt;ExcludeApp ID=&quot;Publisher&quot; /&gt;        &lt;ExcludeApp ID=&quot;SharePointDesigner&quot; /&gt;    &lt;/Product&gt;  &lt;/Add&gt;  &lt;/Configuration&gt;</code></pre><h3 id="四、运行"><a href="#四、运行" class="headerlink" title="四、运行"></a>四、运行</h3><p>启动管理员cmd（进入 office deployment tool的解压路径），输入</p><pre><code>setup.exe /configure configuration-Office365-x64.xml</code></pre><p>等待office安装完成就可以了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件安装 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> office </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
