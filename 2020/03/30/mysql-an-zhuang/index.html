@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue">
+    <meta name="keywords" content="mysql">
     <meta name="description" content="一个人几乎可以在任何他怀有无限热忱的事情上成功。——查尔斯·史考伯">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue脚手架安装 | 艾茶叶蛋</title>
+    <title>mysql安装 | 艾茶叶蛋</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,12 +243,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue脚手架安装</h1>
+                    <h1 class="description center-align post-title">mysql安装</h1>
                 </div>
             </div>
         </div>
@@ -365,8 +365,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue/">
-                                <span class="chip bg-color">vue</span>
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
                             </a>
                         
                     </div>
@@ -390,28 +390,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-25
+                    2020-03-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-25
+                    2020-03-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    588
+                    273
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -427,25 +427,45 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="vue脚手架安装及路径修改"><a href="#vue脚手架安装及路径修改" class="headerlink" title="vue脚手架安装及路径修改"></a>vue脚手架安装及路径修改</h1><h3 id="一、安装node-js"><a href="#一、安装node-js" class="headerlink" title="一、安装node.js"></a>一、安装node.js</h3><p>例如我的安装路径为：D:\tool\nodejs；</p>
-<p>node -v    检查当前node的版本；</p>
-<p>npm -v    检查当前npm的版本;</p>
-<p>有版本信息输出则为安装成功。</p>
-<h3 id="二、修改node-global和node-cache资源路径"><a href="#二、修改node-global和node-cache资源路径" class="headerlink" title="二、修改node_global和node_cache资源路径"></a>二、修改node_global和node_cache资源路径</h3><p>修改node_global和node_cache资源路径的目的是防止默认安装在C盘,分别执行以下代码</p>
-<pre><code>npm config set prefix &quot;D:\tool\nodejs\node_global&quot;
-npm config set cache &quot;D:\tool\nodejs\node_cache&quot;</code></pre><h3 id="三、安装淘宝镜像"><a href="#三、安装淘宝镜像" class="headerlink" title="三、安装淘宝镜像"></a>三、安装淘宝镜像</h3><p>默认下载路径比较慢，安装淘宝镜像可加快下载速度，运行以下代码</p>
-<pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></pre><p>安装成功后输入 npm config list 查询已安装信息，npm config get registry 检查一下镜像站是否切换为淘宝镜像命令，部分人安装后却发现镜像并未更改，这时候需要修改C:\Users\Administrator.npmrc目录的文件以永久使用淘宝镜像，在文件中添加</p>
-<pre><code>registry=http://registry.npm.taobao.org</code></pre><h3 id="四、全局安装vue脚手架"><a href="#四、全局安装vue脚手架" class="headerlink" title="四、全局安装vue脚手架"></a>四、全局安装vue脚手架</h3><p>分别执行以下代码，webpack为打包</p>
-<pre><code>npm install -g @vue/cli//全局安装脚手架
-npm i webpack@3.12.0 -g//全局安装webpage3.12.0稳定版</code></pre><p>有部分人安装可能会出现错误，可能是由于npm版本过低，解决方法执行</p>
-<pre><code>npm install npm -g//检查npm安装或更新命令（可不操作）</code></pre><p>更新成功后再执行上面代码</p>
-<h3 id="五、配置环境变量"><a href="#五、配置环境变量" class="headerlink" title="五、配置环境变量"></a>五、配置环境变量</h3><p>1.重启cmd，一定要重启，不然看不到版本信息，反正我安装后是这样；</p>
-<p>2.当执行前面操作后vue脚手架已安装成功，下面是版本或帮助信息</p>
-<pre><code>vue   ## 查看 vue 相关帮助信息
-vue --version 或 vue -V  ## 查看安装的 vue cli 版本信息</code></pre><p>3、执行后有版本信息输出则说明vue脚手架安装成功，到这里有些人会遇到不是内部或外部命令，也不是可运行的程序或批处理文件的提示，这是因为你已经把node_global和node_cache资源路径修改到了D盘，默认为C盘当然会提示不是指令啦，解决方法</p>
-<pre><code>D:\tool\nodejs\node_global//在电脑环境变量的path下新加
-D:\tool\nodejs\node_global\node_modules//新建NODE_PATH加入</code></pre><p>4、在执行重新执行你会发现已经成功了！</p>
+                <h2 id="一、创建my-ini文件"><a href="#一、创建my-ini文件" class="headerlink" title="一、创建my.ini文件"></a>一、创建my.ini文件</h2><h4 id="1-在解压的根目录创建my-ini文件，并放入下面代码"><a href="#1-在解压的根目录创建my-ini文件，并放入下面代码" class="headerlink" title="1.在解压的根目录创建my.ini文件，并放入下面代码"></a>1.在解压的根目录创建my.ini文件，并放入下面代码</h4><pre><code># 设置mysql客户端默认字符集
 
+default-character-set=utf8
+
+[mysqld]
+
+# 设置3306端口
+
+port=3306
+
+# 设置mysql的安装目录
+
+basedir=D:\mysql-8.0.13-winx64
+
+# 设置mysql数据库的数据的存放目录
+
+datadir=D:\mysql-8.0.13-winx64\data
+
+# 允许最大连接数
+
+max_connections=200
+
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+
+character-set-server=utf8
+
+# 创建新表时将使用的默认存储引擎
+
+default-storage-engine=INNODB
+
+# 默认使用“mysql_native_password”插件认证
+
+default_authentication_plugin=mysql_native_password
+</code></pre><h2 id="二、执行安装"><a href="#二、执行安装" class="headerlink" title="二、执行安装"></a>二、执行安装</h2><h4 id="1-进入解压的跟目录，管理员执行，当根目录有新增文件则表明成功"><a href="#1-进入解压的跟目录，管理员执行，当根目录有新增文件则表明成功" class="headerlink" title="1.进入解压的跟目录，管理员执行，当根目录有新增文件则表明成功"></a>1.进入解压的跟目录，管理员执行，当根目录有新增文件则表明成功</h4><pre><code>bin\mysqld --install
+bin\mysqld --initialize-insecure</code></pre><h4 id="2-重启cmd，一定要重启，并启动服务"><a href="#2-重启cmd，一定要重启，并启动服务" class="headerlink" title="2.重启cmd，一定要重启，并启动服务"></a>2.重启cmd，一定要重启，并启动服务</h4><pre><code>net start mysql</code></pre><h4 id="3-启动服务后，输入"><a href="#3-启动服务后，输入" class="headerlink" title="3.启动服务后，输入"></a>3.启动服务后，输入</h4><pre><code>mysql -uroot -p</code></pre><p>初次安装密码为空，直接回车即可</p>
+<h4 id="4-常用代码"><a href="#4-常用代码" class="headerlink" title="4.常用代码"></a>4.常用代码</h4><pre><code>mysqld --initialize --console
+//查看原始密码一般为0或空
+ ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;你的密码&#39;; 
+ //修改密码</code></pre>
             </div>
             <hr/>
 
@@ -470,7 +490,7 @@ D:\tool\nodejs\node_global\node_modules//新建NODE_PATH加入</code></pre><p>4�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scanele.github.io/2020/03/25/vue-jiao-shou-jia-an-zhuang/">https://scanele.github.io/2020/03/25/vue-jiao-shou-jia-an-zhuang/</a>
+                    <a href="https://scanele.github.io/2020/03/30/mysql-an-zhuang/">https://scanele.github.io/2020/03/30/mysql-an-zhuang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -508,8 +528,8 @@ D:\tool\nodejs\node_global\node_modules//新建NODE_PATH加入</code></pre><p>4�
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
                                 </a>
                             
                         </div>
@@ -938,9 +958,10 @@ D:\tool\nodejs\node_global\node_modules//新建NODE_PATH加入</code></pre><p>4�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/03/30/mysql-an-zhuang/">
                     <div class="card-image">
@@ -958,9 +979,9 @@ D:\tool\nodejs\node_global\node_modules//新建NODE_PATH加入</code></pre><p>4�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -973,6 +994,7 @@ D:\tool\nodejs\node_global\node_modules//新建NODE_PATH加入</code></pre><p>4�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -991,19 +1013,19 @@ D:\tool\nodejs\node_global\node_modules//新建NODE_PATH加入</code></pre><p>4�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/25/office-an-zhuang/">
+                <a href="/2020/03/25/vue-jiao-shou-jia-an-zhuang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="office安装">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="vue脚手架安装">
                         
-                        <span class="card-title">office安装</span>
+                        <span class="card-title">vue脚手架安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            自定义安装office中的Word、Excel、PowerPoint
+                            vue脚手架安装及路径修改
                         
                     </div>
                     <div class="publish-info">
@@ -1025,8 +1047,8 @@ D:\tool\nodejs\node_global\node_modules//新建NODE_PATH加入</code></pre><p>4�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/office/">
-                        <span class="chip bg-color">office</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>

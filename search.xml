@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>mysql安装</title>
+      <link href="/2020/03/30/mysql-an-zhuang/"/>
+      <url>/2020/03/30/mysql-an-zhuang/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、创建my-ini文件"><a href="#一、创建my-ini文件" class="headerlink" title="一、创建my.ini文件"></a>一、创建my.ini文件</h2><h4 id="1-在解压的根目录创建my-ini文件，并放入下面代码"><a href="#1-在解压的根目录创建my-ini文件，并放入下面代码" class="headerlink" title="1.在解压的根目录创建my.ini文件，并放入下面代码"></a>1.在解压的根目录创建my.ini文件，并放入下面代码</h4><pre><code># 设置mysql客户端默认字符集default-character-set=utf8[mysqld]# 设置3306端口port=3306# 设置mysql的安装目录basedir=D:\mysql-8.0.13-winx64# 设置mysql数据库的数据的存放目录datadir=D:\mysql-8.0.13-winx64\data# 允许最大连接数max_connections=200# 服务端使用的字符集默认为8比特编码的latin1字符集character-set-server=utf8# 创建新表时将使用的默认存储引擎default-storage-engine=INNODB# 默认使用“mysql_native_password”插件认证default_authentication_plugin=mysql_native_password</code></pre><h2 id="二、执行安装"><a href="#二、执行安装" class="headerlink" title="二、执行安装"></a>二、执行安装</h2><h4 id="1-进入解压的跟目录，管理员执行，当根目录有新增文件则表明成功"><a href="#1-进入解压的跟目录，管理员执行，当根目录有新增文件则表明成功" class="headerlink" title="1.进入解压的跟目录，管理员执行，当根目录有新增文件则表明成功"></a>1.进入解压的跟目录，管理员执行，当根目录有新增文件则表明成功</h4><pre><code>bin\mysqld --installbin\mysqld --initialize-insecure</code></pre><h4 id="2-重启cmd，一定要重启，并启动服务"><a href="#2-重启cmd，一定要重启，并启动服务" class="headerlink" title="2.重启cmd，一定要重启，并启动服务"></a>2.重启cmd，一定要重启，并启动服务</h4><pre><code>net start mysql</code></pre><h4 id="3-启动服务后，输入"><a href="#3-启动服务后，输入" class="headerlink" title="3.启动服务后，输入"></a>3.启动服务后，输入</h4><pre><code>mysql -uroot -p</code></pre><p>初次安装密码为空，直接回车即可</p><h4 id="4-常用代码"><a href="#4-常用代码" class="headerlink" title="4.常用代码"></a>4.常用代码</h4><pre><code>mysqld --initialize --console//查看原始密码一般为0或空 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;你的密码&#39;;  //修改密码</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件安装 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue脚手架安装</title>
       <link href="/2020/03/25/vue-jiao-shou-jia-an-zhuang/"/>
       <url>/2020/03/25/vue-jiao-shou-jia-an-zhuang/</url>
