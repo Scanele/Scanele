@@ -53,7 +53,7 @@
     
     <a href="/" class="waves-effect waves-light">
       
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      <i class="fas fa-home"></i><!-- style="zoom: 0.6;"-->
       
       <span>首页</span>
     </a>
@@ -64,7 +64,7 @@
     
     <a href="/tags" class="waves-effect waves-light">
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-tags"></i><!-- style="zoom: 0.6;"-->
       
       <span>标签</span>
     </a>
@@ -75,7 +75,7 @@
     
     <a href="/categories" class="waves-effect waves-light">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      <i class="fas fa-bookmark"></i><!-- style="zoom: 0.6;"-->
       
       <span>分类</span>
     </a>
@@ -86,7 +86,7 @@
     
     <a href="/archives" class="waves-effect waves-light">
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      <i class="fas fa-archive"></i><!-- style="zoom: 0.6;"-->
       
       <span>归档</span>
     </a>
@@ -97,7 +97,7 @@
     
     <a href="/about" class="waves-effect waves-light">
       
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      <i class="fas fa-user-circle"></i><!-- style="zoom: 0.6;"-->
       
       <span>关于</span>
     </a>
@@ -108,7 +108,7 @@
     
     <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments"></i><!-- style="zoom: 0.6;"-->
       
       <span>留言板</span>
     </a>
@@ -119,7 +119,7 @@
     
     <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book"></i><!-- style="zoom: 0.6;"-->
       
       <span>友情链接</span>
     </a>
@@ -128,7 +128,7 @@
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" ></i><!-- style="zoom: 0.85;"-->
     </a>
   </li>
 </ul>
@@ -296,21 +296,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">3</a></span>
+    <span class="count"><a href="/">6</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">1</a></span>
+    <span class="count"><a href="/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">3</a></span>
+    <span class="count"><a href="/tags">9</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -326,21 +326,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">3</a></span>
+    <span class="count"><a href="/">6</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">1</a></span>
+    <span class="count"><a href="/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">3</a></span>
+    <span class="count"><a href="/tags">9</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -468,7 +468,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,3,0],
+                data: [0,0,0,0,0,0,0,0,0,0,0,3,3],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -510,7 +510,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"软件安装","value":3}],
+                data: [{"name":"软件安装","value":3},{"name":"常用方法","value":3}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -534,7 +534,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["mysql","office","vue"]
+                data: ["前端","office","base6","图片二进制","mysql","vue","上传","后端","跨域请求"]
             }
         ],
         yAxis: [
@@ -547,7 +547,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [1,1,1],
+                data: [2,1,1,1,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -664,20 +664,56 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/mysql/">
-                <span class="chip center-align waves-effect waves-light chip-default">mysql</span>
-            </a>
-            
-            
-            
             <a href="/tags/office/">
                 <span class="chip center-align waves-effect waves-light chip-default">office</span>
             </a>
             
             
             
+            <a href="/tags/base6/">
+                <span class="chip center-align waves-effect waves-light chip-default">base6</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%9B%BE%E7%89%87%E4%BA%8C%E8%BF%9B%E5%88%B6/">
+                <span class="chip center-align waves-effect waves-light chip-default">图片二进制</span>
+            </a>
+            
+            
+            
+            <a href="/tags/mysql/">
+                <span class="chip center-align waves-effect waves-light chip-default">mysql</span>
+            </a>
+            
+            
+            
             <a href="/tags/vue/">
                 <span class="chip center-align waves-effect waves-light chip-default">vue</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E4%B8%8A%E4%BC%A0/">
+                <span class="chip center-align waves-effect waves-light chip-default">上传</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                <span class="chip center-align waves-effect waves-light chip-default">前端</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                <span class="chip center-align waves-effect waves-light chip-default">后端</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82/">
+                <span class="chip center-align waves-effect waves-light chip-default">跨域请求</span>
             </a>
             
             
@@ -744,7 +780,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">1.2k</span>
+                <span class="white-color">2k</span>
             
 
             
@@ -763,7 +799,7 @@
                 </span>
                 <br>
                 <span id="busuanzi_container_site_uv">
-                    本站部分素材来源于网络，如有侵权请联系作者删除，不足之处,万望谅解!
+                    本站部分素材来源于网络，如有侵权请联系作者删除，不足之处，万望谅解!
                 </span>
                 
             
