@@ -450,20 +450,8 @@
                     
 
                     
-                        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+                        
 <style>
-    .aplayer .aplayer-lrc p {
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
         left: -66px !important;
     }
@@ -472,30 +460,37 @@
         left: 0px !important;
     }
 
-    
 </style>
+
+<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <div class="music-player">
     
     <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="28403111"
-                   fixed='false'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='none'
-                   order='random'
-                   preload='auto'
-                   volume='0.6'
-                   list-folded='true'
-        >
-        </meting-js>
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="aplayer" class="music"></div>
+        </div>
     </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<script>
+$(function () {
+    new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: 'false' === 'true',
+        autoplay: 'false' === 'true',
+        theme: '#42b983',
+        loop: 'none',
+        order: 'list',
+        preload: 'auto',
+        volume: Number('0.7'),
+        listFolded: 'true' === 'true',
+        listMaxHeight: '',
+        lrcType: 3,
+        audio: JSON.parse('[{"name":"特别的人","artist":"方大同","url":"/medias/music/方大同 - 特别的人.mp3","lrc":"/medias/music/方大同-特别的人.lrc","cover":"https://p3.music.126.net/LeILVAE-Ux61KO3Oty520Q==/6641050231860516.jpg?param=300y300"}]')
+    });
+});
+</script>
                         
 
                     
