@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="office">
+    <meta name="keywords" content="git">
     <meta name="description" content="一个人几乎可以在任何他怀有无限热忱的事情上成功。——查尔斯·史考伯">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>office安装 | 艾茶叶蛋</title>
+    <title>git常用命令 | 艾茶叶蛋</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -256,12 +256,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">office安装</h1>
+                    <h1 class="description center-align post-title">git常用命令</h1>
                 </div>
             </div>
         </div>
@@ -378,23 +378,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/office/">
-                                <span class="chip bg-color">office</span>
+                            <a href="/tags/git/">
+                                <span class="chip bg-color">git</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
-                                软件安装
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -403,28 +394,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-25
+                    2020-07-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-15
+                    2020-07-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    349
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -440,27 +431,254 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="解决office自定义安装问题"><a href="#解决office自定义安装问题" class="headerlink" title="解决office自定义安装问题"></a>解决office自定义安装问题</h1><p>当我们需要安装office时，office默认会帮我们安装其所有功能，比如Access、OneNote等，但我们有时只想安装其中的Word、Excel、PowerPoint，那需要怎么做呢？</p>
-<h3 id="一、安装DAEMON-Tools-Lite"><a href="#一、安装DAEMON-Tools-Lite" class="headerlink" title="一、安装DAEMON Tools Lite"></a>一、安装DAEMON Tools Lite</h3><p><a href="https://daemon-tools-lite.en.softonic.com/download" target="_blank" rel="noopener">daemon tools</a>是一个的虚拟光驱工具，当安装office时会用到，安装完成后将office加载进来，比如我加载后的盘符为G盘。</p>
-<h3 id="二、安装微软官方管理器office-deployment-tool"><a href="#二、安装微软官方管理器office-deployment-tool" class="headerlink" title="二、安装微软官方管理器office deployment tool"></a>二、安装微软官方管理器office deployment tool</h3><p>下载 <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117" target="_blank" rel="noopener">Office 部署工具</a>后，双击 Officedeploymenttool 执行 (.exe) 文件以解压缩 ODT  文件。完成后，解压到的文件夹中应该有多个文件： setup.exe 和一些示例 configuration.xml  文件，而我们真正需要的是configuration-Office365-x64.xml这个文件。</p>
-<h3 id="三、修改configuration-Office365-x64-xml文件"><a href="#三、修改configuration-Office365-x64-xml文件" class="headerlink" title="三、修改configuration-Office365-x64.xml文件"></a>三、修改configuration-Office365-x64.xml文件</h3><pre><code>&lt;Configuration&gt;
-  &lt;Add SourcePath=&quot;G:\&quot; OfficeClientEdition=&quot;64&quot; &gt;
-  //G为虚拟镜像位置,daemon tools加载office的盘符
-    &lt;Product ID=&quot;ProPlusRetail&quot;&gt;
-        &lt;Language ID=&quot;zh-CN&quot; /&gt;//选择语言
-        &lt;ExcludeApp ID=&quot;Access&quot; /&gt;
-        &lt;ExcludeApp ID=&quot;Groove&quot; /&gt;
-        &lt;ExcludeApp ID=&quot;InfoPath&quot; /&gt;
-        &lt;ExcludeApp ID=&quot;Lync&quot; /&gt;
-        &lt;ExcludeApp ID=&quot;OneNote&quot; /&gt;
-        &lt;ExcludeApp ID=&quot;Outlook&quot; /&gt;
-        &lt;ExcludeApp ID=&quot;Publisher&quot; /&gt;
-        &lt;ExcludeApp ID=&quot;SharePointDesigner&quot; /&gt;
-    &lt;/Product&gt;
-  &lt;/Add&gt;  
-&lt;/Configuration&gt;</code></pre><h3 id="四、运行"><a href="#四、运行" class="headerlink" title="四、运行"></a>四、运行</h3><p>启动管理员cmd（进入 office deployment tool的解压路径），输入</p>
-<pre><code>setup.exe /configure configuration-Office365-x64.xml</code></pre><p>等待office安装完成就可以了。</p>
+                <h4 id="一、仓库"><a href="#一、仓库" class="headerlink" title="一、仓库"></a>一、仓库</h4><pre><code># 在当前目录新建一个Git代码库
+$ git init
 
+# 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]
+
+# 下载一个项目和它的整个代码历史
+$ git clone [url]</code></pre><h4 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h4><pre><code># 显示当前的Git配置
+$ git config --list
+
+# 编辑Git配置文件
+$ git config -e [--global]
+
+# 设置提交代码时的用户信息
+$ git config [--global] user.name &quot;[name]&quot;
+$ git config [--global] user.email &quot;[email address]&quot;</code></pre><h4 id="三、增加-删除文件"><a href="#三、增加-删除文件" class="headerlink" title="三、增加/删除文件"></a>三、增加/删除文件</h4><pre><code># 添加指定文件到暂存区
+$ git add [file1] [file2] ...
+
+# 添加指定目录到暂存区，包括子目录
+$ git add [dir]
+
+# 添加当前目录的所有文件到暂存区
+$ git add .
+
+# 添加每个变化前，都会要求确认
+# 对于同一个文件的多处变化，可以实现分次提交
+$ git add -p
+
+# 删除工作区文件，并且将这次删除放入暂存区
+$ git rm [file1] [file2] ...
+
+# 停止追踪指定文件，但该文件会保留在工作区，--cached删除远程仓库
+$ git rm --cached [file] (git rm --cached -r .idea)
+
+# 改名文件，并且将这个改名放入暂存区
+$ git mv [file-original] [file-renamed]</code></pre><h4 id="四、代码提交"><a href="#四、代码提交" class="headerlink" title="四、代码提交"></a>四、代码提交</h4><pre><code># 提交暂存区到仓库区
+$ git commit -m [message]
+
+# 提交暂存区的指定文件到仓库区
+$ git commit [file1] [file2] ... -m [message]
+
+# 提交工作区自上次commit之后的变化，直接到仓库区
+$ git commit -a
+
+# 提交时显示所有diff信息
+$ git commit -v
+
+# 使用一次新的commit，替代上一次提交
+# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
+$ git commit --amend -m [message]
+
+# 重做上一次commit，并包括指定文件的新变化
+$ git commit --amend [file1] [file2] ...</code></pre><h4 id="五、分支"><a href="#五、分支" class="headerlink" title="五、分支"></a>五、分支</h4><pre><code># 列出所有本地分支
+$ git branch
+
+# 列出所有远程分支
+$ git branch -r
+
+# 列出所有本地分支和远程分支
+$ git branch -a
+
+# 新建一个分支，但依然停留在当前分支
+$ git branch [branch-name]
+
+# 新建一个分支，并切换到该分支
+$ git checkout -b [branch]
+
+# 新建一个分支，指向指定commit
+$ git branch [branch] [commit]
+
+# 新建一个分支，与指定的远程分支建立追踪关系
+$ git branch --track [branch] [remote-branch]
+
+# 切换到指定分支，并更新工作区
+$ git checkout [branch-name]
+
+# 切换到上一个分支
+$ git checkout -
+
+# 建立追踪关系，在现有分支与指定的远程分支之间
+$ git branch --set-upstream [branch] [remote-branch]
+
+# 合并指定分支到当前分支
+$ git merge [branch]
+
+# 选择一个commit，合并进当前分支
+$ git cherry-pick [commit]
+
+# 删除分支
+$ git branch -d [branch-name]
+
+# 删除远程分支
+$ git push origin --delete [branch-name]
+$ git branch -dr [remote/branch]</code></pre><h4 id="六、标签"><a href="#六、标签" class="headerlink" title="六、标签"></a>六、标签</h4><pre><code># 列出所有tag
+$ git tag
+
+# 新建一个tag在当前commit
+$ git tag [tag]
+
+# 新建一个tag在指定commit
+$ git tag [tag] [commit]
+
+# 删除本地tag
+$ git tag -d [tag]
+
+# 删除远程tag
+$ git push origin :refs/tags/[tagName]
+
+# 查看tag信息
+$ git show [tag]
+
+# 提交指定tag
+$ git push [remote] [tag]
+
+# 提交所有tag
+$ git push [remote] --tags
+
+# 新建一个分支，指向某个tag
+$ git checkout -b [branch] [tag]</code></pre><h4 id="七、查看信息"><a href="#七、查看信息" class="headerlink" title="七、查看信息"></a>七、查看信息</h4><pre><code># 显示有变更的文件
+$ git status
+
+# 显示当前分支的版本历史
+$ git log
+
+# 显示commit历史，以及每次commit发生变更的文件
+$ git log --stat
+
+# 搜索提交历史，根据关键词
+$ git log -S [keyword]
+
+# 显示某个commit之后的所有变动，每个commit占据一行
+$ git log [tag] HEAD --pretty=format:%s
+
+# 显示某个commit之后的所有变动，其&quot;提交说明&quot;必须符合搜索条件
+$ git log [tag] HEAD --grep feature
+
+# 显示某个文件的版本历史，包括文件改名
+$ git log --follow [file]
+$ git whatchanged [file]
+
+# 显示指定文件相关的每一次diff
+$ git log -p [file]
+
+# 显示过去5次提交
+$ git log -5 --pretty --oneline
+
+# 显示所有提交过的用户，按提交次数排序
+$ git shortlog -sn
+
+# 显示指定文件是什么人在什么时间修改过
+$ git blame [file]
+
+# 显示暂存区和工作区的差异
+$ git diff
+
+# 显示暂存区和上一个commit的差异
+$ git diff --cached [file]
+
+# 显示工作区与当前分支最新commit之间的差异
+$ git diff HEAD
+
+# 显示两次提交之间的差异
+$ git diff [first-branch]...[second-branch]
+
+# 显示今天你写了多少行代码
+$ git diff --shortstat &quot;@{0 day ago}&quot;
+
+# 显示某次提交的元数据和内容变化
+$ git show [commit]
+
+# 显示某次提交发生变化的文件
+$ git show --name-only [commit]
+
+# 显示某次提交时，某个文件的内容
+$ git show [commit]:[filename]
+
+# 显示当前分支的最近几次提交
+$ git reflog</code></pre><h4 id="八、远程同步"><a href="#八、远程同步" class="headerlink" title="八、远程同步"></a>八、远程同步</h4><pre><code># 下载远程仓库的所有变动
+$ git fetch [remote]
+
+# 显示所有远程仓库
+$ git remote -v
+
+# 显示某个远程仓库的信息
+$ git remote show [remote]
+
+# 增加一个新的远程仓库，并命名
+$ git remote add [shortname] [url]
+
+# 取回远程仓库的变化，并与本地分支合并
+$ git pull [remote] [branch]
+
+# fatal: refusing to merge unrelated histories异常解决，解决冲突
+$ git pull [remote] [branch] --allow-unrelated-histories
+
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+
+# 强行推送当前分支到远程仓库，即使有冲突
+$ git push [remote] --force
+
+# 推送所有分支到远程仓库
+$ git push [remote] --all</code></pre><h4 id="九、撤销"><a href="#九、撤销" class="headerlink" title="九、撤销"></a>九、撤销</h4><pre><code># 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+
+# 恢复某个commit的指定文件到暂存区和工作区
+$ git checkout [commit] [file]
+
+# 恢复暂存区的所有文件到工作区
+$ git checkout .
+
+# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+$ git reset [file]
+
+# 重置暂存区与工作区，与上一次commit保持一致
+$ git reset --hard
+
+# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+$ git reset [commit]
+
+# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]
+
+# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+$ git reset --keep [commit]
+
+# 新建一个commit，用来撤销指定commit
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [commit]
+
+# 暂时将未提交的变化移除，稍后再移入
+$ git stash
+$ git stash pop</code></pre><h4 id="十、关于-gitignore文件"><a href="#十、关于-gitignore文件" class="headerlink" title="十、关于.gitignore文件"></a>十、关于.gitignore文件</h4><pre><code># 配置.gitignore文件(新建/编辑）
+$ echo &#39;.idea&#39; &gt;&gt; .gitignore
+
+# 常用的.gitignore文件简短配置
+.project
+.settings/
+.prefs
+.pydevproject
+.idea/
+.idea
+.DS_Store
+.cache
+*.pyc
+*.html
+*.xlm
+*.iml</code></pre>
             </div>
             <hr/>
 
@@ -485,7 +703,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://scanele.cn/2020/03/25/office-an-zhuang/">http://scanele.cn/2020/03/25/office-an-zhuang/</a>
+                    <a href="http://scanele.cn/2020/07/30/git-chang-yong-ming-ling/">http://scanele.cn/2020/07/30/git-chang-yong-ming-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -523,8 +741,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/office/">
-                                    <span class="chip bg-color">office</span>
+                                <a href="/tags/git/">
+                                    <span class="chip bg-color">git</span>
                                 </a>
                             
                         </div>
@@ -953,46 +1171,44 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/03/25/vue-jiao-shou-jia-an-zhuang/">
+                <a href="/2020/07/30/git-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="vue脚手架安装">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="git常用命令">
                         
-                        <span class="card-title">vue脚手架安装</span>
+                        <span class="card-title">git常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vue脚手架安装及路径修改
+                            git常用命令
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
-                                    软件安装
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            艾茶叶蛋
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
@@ -1003,46 +1219,49 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/25/office-an-zhuang/">
+                <a href="/2020/04/15/kua-yu-qing-qiu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="office安装">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="跨域请求">
                         
-                        <span class="card-title">office安装</span>
+                        <span class="card-title">跨域请求</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            自定义安装office中的Word、Excel、PowerPoints
+                            解决跨域请求
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
-                                    软件安装
+                            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="post-category">
+                                    常用方法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/office/">
-                        <span class="chip bg-color">office</span>
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82/">
+                        <span class="chip bg-color">跨域请求</span>
                     </a>
                     
                 </div>
