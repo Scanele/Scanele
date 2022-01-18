@@ -410,21 +410,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-11
+                    2021-12-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    583
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -509,14 +509,43 @@
 <p>3、外连接（对于null的数据项不忽略）：</p>
 <p>​            左连接（left join)：以左边的表为基准连接右边的表;</p>
 <p>​            右连接（right join): 以右边的表为基准连接左边的表；</p>
-<pre><code>例：from A left join B on a.no=b.no 
-    from A left join B using(no)//去除no重复值</code></pre><p>4、多表连接：</p>
+<pre><code>例：from A join B on a.no=b.no //连接
+    from A left join B on a.no=b.no 
+    from A right join B using(no)//去除no重复值</code></pre><p>4、多表连接：</p>
 <p>​    where A.no = B.no and C.co = B.co;</p>
 <p>5、嵌套查询：</p>
 <p>​    where no in(select no from xxx) //子查询语句不能使用order by </p>
-<h1 id="七、集合查询"><a href="#七、集合查询" class="headerlink" title="七、集合查询"></a>七、集合查询</h1><p>主要包括并操作union、交操作intersect和差操作except;</p>
-<pre><code>例：查询语句1 union 查询语句2</code></pre><h1 id="八、带exists的谓词子查询"><a href="#八、带exists的谓词子查询" class="headerlink" title="八、带exists的谓词子查询"></a>八、带exists的谓词子查询</h1><p>带exists的谓词子查询不返回任何数据，只产生逻辑“true”或”false“。</p>
-<pre><code>例：Student where exists (select * from SC where no = Student.no and cno =&#39;1&#39;)</code></pre>
+<h2 id="七、集合查询"><a href="#七、集合查询" class="headerlink" title="七、集合查询"></a>七、集合查询</h2><p>主要包括并操作union、交操作intersect和差操作except;</p>
+<pre><code>例：查询语句1 union 查询语句2</code></pre><h2 id="八、带exists的谓词子查询"><a href="#八、带exists的谓词子查询" class="headerlink" title="八、带exists的谓词子查询"></a>八、带exists的谓词子查询</h2><p>带exists的谓词子查询不返回任何数据，只产生逻辑“true”或”false“。</p>
+<pre><code>例：Student where exists (select * from SC where no = Student.no and cno =&#39;1&#39;)</code></pre><h2 id="九、其他"><a href="#九、其他" class="headerlink" title="九、其他"></a>九、其他</h2><p>1、常见按条件查询所有数据可以是按表间连接中某一字段等于进行查询。</p>
+<p>2、having有且的意思。</p>
+<p>3、解题技巧：</p>
+<p>​        增加表减轻复杂度：可以重新定义表然后重命名，根据表中内容进行条件判断；</p>
+<p>4、over函数可以直接跟在select属性后面，over函数里可以加order by进行排序，对于计算多个id的值需要进行排序计算。（比如ID，日期的加减，需要用到over对ID进行排序后才能进行计算）</p>
+<p>5、row_number()：获取当前行数（从1开始）。</p>
+<p>6、count(1) and count(字段)：<br>     两者的主要区别是<br> （1） count(1) 会统计表中的所有的记录数，包含字段为null 的记录。<br> （2） count(字段) 会统计该字段在表中出现的次数，忽略字段为null 的情况。即不统计字段为null 的记录。</p>
+<p>7、循序递增的id-循序递增是值 = 固定值</p>
+<p>​    例：2-1=1,3-2=1。</p>
+<p>8、IFNULL() 函数用于判断第一个表达式是否为 NULL，如果为 NULL 则返回第二个参数的值，如果不为 NULL 则返回第一个参数的值。</p>
+<p>IFNULL() 函数语法格式为：</p>
+<pre><code>IFNULL(expression, alt_value)</code></pre><p>9、LIMIT与OFFSET的使用</p>
+<p>limit 与 offset：从下标0开始</p>
+<p>   offset X  是跳过X个数据</p>
+<p>   limit Y   是选取Y个数据</p>
+<p>   limit  X,Y 中X表示跳过X个数据，读取Y个数据</p>
+<pre><code>from table limit 2,1;
+//跳过2条取出1条数据，limit后面是从第2条开始读，读取1条信息，即读取第3条数据
+
+
+from table limit 2 offset 1;
+//从第1条（不包括）数据开始取出2条数据，limit后面跟的是2条数据，offset后面是从第1条开始读取，即读取第2,3条</code></pre><p>10、SET N := N-1; “:=”表示覆盖之前的值</p>
+<p>11、mysql中where后为什么不能使用select中定义的别名：</p>
+<pre><code>因为mysql中sql语句的书写顺序与执行顺序不同
+        sql书写顺序：select 查询内容 from 表 where 查询条件
+        sql执行顺序: from 表 where 查询条件 select 查询内容</code></pre><p>12、limit 不支持子查询</p>
+<pre><code>错：select * from my_table where id in (select id from my_table limit 10)
+
+解决方案：select * from my_table where id in (select t.id from (select * from my_table limit 10)as t) </code></pre>
             </div>
             <hr/>
 
@@ -531,7 +560,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://scanele.cn" rel="external nofollow noreferrer">艾茶叶蛋</a>
+                    <a href="https://scanele.github.io" rel="external nofollow noreferrer">艾茶叶蛋</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -541,7 +570,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://scanele.cn/2021/12/11/mysql-ji-chu-yu-fa/">http://scanele.cn/2021/12/11/mysql-ji-chu-yu-fa/</a>
+                    <a href="https://scanele.github.io/2021/12/11/mysql-ji-chu-yu-fa/">https://scanele.github.io/2021/12/11/mysql-ji-chu-yu-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -554,7 +583,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://scanele.cn" target="_blank">艾茶叶蛋</a>
+                    <a href="https://scanele.github.io" target="_blank">艾茶叶蛋</a>
                     !
                 </span>
             </div>
@@ -1009,48 +1038,46 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/12/11/mysql-ji-chu-yu-fa/">
+                <a href="/2021/12/15/suan-fa-chang-gui-jie-da/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="mysql基础语法">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="算法常规解答">
                         
-                        <span class="card-title">mysql基础语法</span>
+                        <span class="card-title">算法常规解答</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            mysql基础语法知识
+                            算法解决方案
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-15
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    基础知识
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-category">
+                                    算法解决方案
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mysql/">
-                        <span class="chip bg-color">mysql</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -1236,7 +1263,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">4.5k</span>
+                <span class="white-color">6.4k</span>
             
 
             

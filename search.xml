@@ -4,11 +4,74 @@
   
     
     <entry>
+      <title>线程与进程</title>
+      <link href="/2022/01/18/xian-cheng-yu-jin-cheng/"/>
+      <url>/2022/01/18/xian-cheng-yu-jin-cheng/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>排序算法</title>
+      <link href="/2022/01/14/pai-xu-suan-fa/"/>
+      <url>/2022/01/14/pai-xu-suan-fa/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、冒泡排序"><a href="#一、冒泡排序" class="headerlink" title="一、冒泡排序"></a>一、冒泡排序</h2><p>其实现原理是重复扫描待排序序列，并比较每一对相邻的元素，当该对元素顺序不正确时进行交换。一直重复这个过程，直到没有任何两个相邻元素可以交换，就表明完成了排序。复杂度为 2^n</p><pre><code>for(i = nums.length-1; i&gt;0; i--){    for(j = 0; j&lt;i; j++){        if(nums[j] &gt; nums[j+1]){            int temp = nums[j];            nums[j] = nums[j+1];            nums[j+1] = temp;        }            }}</code></pre><h2 id="二、快速排序"><a href="#二、快速排序" class="headerlink" title="二、快速排序"></a>二、快速排序</h2><p>快速排序是冒泡排序的一种优化。</p><pre><code>/* * 快速排序 * * 参数说明： *     a -- 待排序的数组 *     l -- 数组的左边界(例如，从    +-起始位置开始排序，则l=0) *     r -- 数组的右边界(例如，排序截至到数组末尾，则r=a.length-1) */void quick_sort(int a[], int l, int r){    if (l &lt; r)    {        int i,j,x;        i = l;        j = r;        x = a[i];        while (i &lt; j)        {            while(i &lt; j &amp;&amp; a[j] &gt; x)                j--; // 从右向左找第一个小于x的数            if(i &lt; j)                a[i++] = a[j];            while(i &lt; j &amp;&amp; a[i] &lt; x)                i++; // 从左向右找第一个大于x的数            if(i &lt; j)                a[j--] = a[i];        }        a[i] = x;        quick_sort(a, l, i-1); /* 依据a[i]分为左边并对左边进行递归调用 */        quick_sort(a, i+1, r); /* 依据a[i]分为右边并对右边进行递归调用 */    }}</code></pre><h2 id="三、选择排序"><a href="#三、选择排序" class="headerlink" title="三、选择排序"></a>三、选择排序</h2><p>选择排序(Selection  sort)是一种简单直观的排序算法。其基本思想是：首先在未排序的数列中找到最小(or最大)元素，然后将其存放到数列的起始位置；接着，再从剩余未排序的元素中继续寻找最小(or最大)元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。 </p><p>选择排序的时间复杂度是 <img src="https://www.zhihu.com/equation?tex=O%28N%5E2%29" alt="[公式]"> ：假设被排序的数列中有N个数。遍历一趟的时间复杂度是O(N)，需要遍历多少次呢？N-1次因此，选择排序的时间复杂度是 <img src="https://www.zhihu.com/equation?tex=O%28N%5E2%29" alt="[公式]"> 。</p><p>选择排序是稳定的算法，它满足稳定算法的定义：假设在数列中存在a[i]=a[j]，若在排序之前，a[i]在a[j]前面；并且排序之后，a[i]仍然在a[j]前面。则这个排序算法是稳定的！</p><p>引用于：通俗易懂讲解 选择排序 - 忆臻的文章 - 知乎 <a href="https://zhuanlan.zhihu.com/p/29889599" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/29889599</a></p><pre><code>/* * 选择排序 *  * 参数说明：  *     a -- 待排序的数组  *     n -- 数组的长度  */void select_sort(int a[], int n){    int i;        // 有序区的末尾位置    int j;        // 无序区的起始位置    int min;    // 无序区中最小元素位置    for(i=0; i&lt;n; i++)    {        min=i;        //找&quot;a[i+1]..a[n]&quot;之间最小元素，并赋给min        for(j=i+1; j&lt;n; j++)        {            if(a[j] &lt; a[min])                min=j;        }        //若min!=i，则交换 a[i] 和 a[min]。        //交换后，保证了a[0]..a[i]之间元素有序。        if(min != i)            swap(a[i], a[min]);    }}</code></pre><h2 id="四、归并排序"><a href="#四、归并排序" class="headerlink" title="四、归并排序"></a>四、归并排序</h2><p>把两个或多个已经有序的序列合并成一个，时间复杂度O(nlog n)，空间复杂度O(n)，归并排序是稳定的。</p><pre><code>int *B = (int *)malloc(n*sizeof(int));//辅助函数B//A[low_mid]和A[mid+1...high]各自有序，将两个部分归并void Merge(int A[],int low,int mid,int high){    int i,j,k;    //复制数组    for(k = low;k&lt;=high;k++)        B[k] = A[k];    //选择判断排序        for(i=low,j=mid+1,k=i;i&lt;=mid&amp;&amp;j&lt;=high;k++){        if(B[i]&lt;=B[j]){            A[k] = B[i++];        }else{            A[k] = B[j++];        }    }    //对剩下部分有序序列进行复制    while(i&lt;=mid) A[k++] = B[i++];    while(i&lt;=high) A[k++] = B[j++];}//使用递归的方式调用void MergeSort(int A[],int low,int high){    if(low&lt;high){        int mid = (low + high)/2;        MergeSort(A,low,mid);//对左半部分归并排序        MergeSort(A,mid+1,high);//对右半部分归并排序        Merge(A,low,mid,high);//归并    }}</code></pre><h2 id="五、插入排序"><a href="#五、插入排序" class="headerlink" title="五、插入排序"></a>五、插入排序</h2><p>插入排序的平均时间复杂度也是 O(n^2)，空间复杂度为常数阶 O(1)，具体时间复杂度和数组的有序性也是有关联的。</p><p>判断当前数值与前一个数值的大小，如果小于则替换，一直循环比较并替换完成最小的值，然后进入下一次循环。</p><pre><code>for (int i = 0; i &lt; n; i++) {    // 寻找元素 arr[i] 合适的插入位置   for( int j = i ; j &gt; 0 ; j -- )        if( arr[j].compareTo( arr[j-1] ) &lt; 0 )//arr[j] &lt; arr[j-1]            swap( arr, j , j-1 );        else            break;}private static void swap(Object[] arr, int i, int j) {        Object t = arr[i];        arr[i] = arr[j];        arr[j] = t;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>算法常规解答</title>
+      <link href="/2021/12/15/suan-fa-chang-gui-jie-da/"/>
+      <url>/2021/12/15/suan-fa-chang-gui-jie-da/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、迭代法"><a href="#一、迭代法" class="headerlink" title="一、迭代法"></a>一、迭代法</h2><p>1.对于一个单一连续性方向的链表翻转，可以使用交踢迭代的方法解决（力扣剑指office|| 024），哪边为null哪边就为尾部：</p><pre><code>1.逐步缩减计算范围ListNode next = curr.next;2.尾部首先设置为空，其次将每个链表通过尾插法赋值while (curr != null) {            ListNode next = curr.next;            curr.next = prev;            prev = curr;            curr = next;        }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法解决方案 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mysql基础语法</title>
       <link href="/2021/12/11/mysql-ji-chu-yu-fa/"/>
       <url>/2021/12/11/mysql-ji-chu-yu-fa/</url>
       
-        <content type="html"><![CDATA[<h2 id="一、where子句常用查询条件"><a href="#一、where子句常用查询条件" class="headerlink" title="一、where子句常用查询条件"></a>一、where子句常用查询条件</h2><table><thead><tr><th align="center">谓词</th><th align="center">查询条件</th></tr></thead><tbody><tr><td align="center">确定范围</td><td align="center">between and, not between and</td></tr><tr><td align="center">确定集合</td><td align="center">in, not in</td></tr><tr><td align="center">字符匹配</td><td align="center">like, not like</td></tr><tr><td align="center">空值</td><td align="center">is null, is not null</td></tr></tbody></table><h2 id="二、like关键字说明"><a href="#二、like关键字说明" class="headerlink" title="二、like关键字说明"></a>二、like关键字说明</h2><pre><code>1.like ‘刘%’  ：查询所有姓刘学生的信息；2.like &#39;欧阳_&#39; : 查询姓为欧阳三个汉字的学生信息；3.like &#39;_阳%&#39; : 查询第二个字为阳的所有学生信息；4.like &#39;DB\_abc&#39; escape&#39;\&#39; :查询DB_abc的信息，&#39;\&#39;为换码字符（转义）5.like &#39;DB\_%i__&#39; escape&#39;\&#39; : 查询以“DB_”开头，且倒数第三个字符为i的信息；</code></pre><h2 id="三、order-by-排序（跟where使用）"><a href="#三、order-by-排序（跟where使用）" class="headerlink" title="三、order by 排序（跟where使用）"></a>三、order by 排序（跟where使用）</h2><pre><code>1.order by ‘xx属性’ asc : 升序；2.order by ‘xx属性’ desc : 降序；例：where xx = &quot;xx&quot; order by ‘xx属性’ asc ;</code></pre><h2 id="四、聚集函数"><a href="#四、聚集函数" class="headerlink" title="四、聚集函数"></a>四、聚集函数</h2><table><thead><tr><th align="center">count( [distinct|all] &lt;列名&gt;)</th><th align="center">统计列个数</th></tr></thead><tbody><tr><td align="center">sum( [distinctall] &lt;列名&gt;)</td><td align="center">计算总额</td></tr><tr><td align="center">avg( [distinctall] &lt;列名&gt;)</td><td align="center">计算平均值</td></tr><tr><td align="center">max( [distinctall] &lt;列名&gt;)</td><td align="center">最大值</td></tr><tr><td align="center">min( [distinctall] &lt;列名&gt;)</td><td align="center">最小值</td></tr></tbody></table><p>distinct：过滤重复项</p><p>all：查询所有值</p><p>聚集函数只能用于select语句和group by 中的having子句，where表达式不允许使用</p><h2 id="五、group-by-子句"><a href="#五、group-by-子句" class="headerlink" title="五、group by 子句"></a>五、group by 子句</h2><pre><code>例：where xx = &quot;xx&quot; group by Sno having count(*)&gt;3;</code></pre><p>根据条件进行分组，并判断分组中Sno是否超过3；</p><h2 id="六、连接查询"><a href="#六、连接查询" class="headerlink" title="六、连接查询"></a>六、连接查询</h2><p>1、等值连接和非等值连接：通过“=”连接起来，对于null的数据项忽略；</p><p>2、自身连接：同一个数据表定义不同别名，并通过条件连接起来；</p><p>3、外连接（对于null的数据项不忽略）：</p><p>​            左连接（left join)：以左边的表为基准连接右边的表;</p><p>​            右连接（right join): 以右边的表为基准连接左边的表；</p><pre><code>例：from A left join B on a.no=b.no     from A left join B using(no)//去除no重复值</code></pre><p>4、多表连接：</p><p>​    where A.no = B.no and C.co = B.co;</p><p>5、嵌套查询：</p><p>​    where no in(select no from xxx) //子查询语句不能使用order by </p><h1 id="七、集合查询"><a href="#七、集合查询" class="headerlink" title="七、集合查询"></a>七、集合查询</h1><p>主要包括并操作union、交操作intersect和差操作except;</p><pre><code>例：查询语句1 union 查询语句2</code></pre><h1 id="八、带exists的谓词子查询"><a href="#八、带exists的谓词子查询" class="headerlink" title="八、带exists的谓词子查询"></a>八、带exists的谓词子查询</h1><p>带exists的谓词子查询不返回任何数据，只产生逻辑“true”或”false“。</p><pre><code>例：Student where exists (select * from SC where no = Student.no and cno =&#39;1&#39;)</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、where子句常用查询条件"><a href="#一、where子句常用查询条件" class="headerlink" title="一、where子句常用查询条件"></a>一、where子句常用查询条件</h2><table><thead><tr><th align="center">谓词</th><th align="center">查询条件</th></tr></thead><tbody><tr><td align="center">确定范围</td><td align="center">between and, not between and</td></tr><tr><td align="center">确定集合</td><td align="center">in, not in</td></tr><tr><td align="center">字符匹配</td><td align="center">like, not like</td></tr><tr><td align="center">空值</td><td align="center">is null, is not null</td></tr></tbody></table><h2 id="二、like关键字说明"><a href="#二、like关键字说明" class="headerlink" title="二、like关键字说明"></a>二、like关键字说明</h2><pre><code>1.like ‘刘%’  ：查询所有姓刘学生的信息；2.like &#39;欧阳_&#39; : 查询姓为欧阳三个汉字的学生信息；3.like &#39;_阳%&#39; : 查询第二个字为阳的所有学生信息；4.like &#39;DB\_abc&#39; escape&#39;\&#39; :查询DB_abc的信息，&#39;\&#39;为换码字符（转义）5.like &#39;DB\_%i__&#39; escape&#39;\&#39; : 查询以“DB_”开头，且倒数第三个字符为i的信息；</code></pre><h2 id="三、order-by-排序（跟where使用）"><a href="#三、order-by-排序（跟where使用）" class="headerlink" title="三、order by 排序（跟where使用）"></a>三、order by 排序（跟where使用）</h2><pre><code>1.order by ‘xx属性’ asc : 升序；2.order by ‘xx属性’ desc : 降序；例：where xx = &quot;xx&quot; order by ‘xx属性’ asc ;</code></pre><h2 id="四、聚集函数"><a href="#四、聚集函数" class="headerlink" title="四、聚集函数"></a>四、聚集函数</h2><table><thead><tr><th align="center">count( [distinct|all] &lt;列名&gt;)</th><th align="center">统计列个数</th></tr></thead><tbody><tr><td align="center">sum( [distinctall] &lt;列名&gt;)</td><td align="center">计算总额</td></tr><tr><td align="center">avg( [distinctall] &lt;列名&gt;)</td><td align="center">计算平均值</td></tr><tr><td align="center">max( [distinctall] &lt;列名&gt;)</td><td align="center">最大值</td></tr><tr><td align="center">min( [distinctall] &lt;列名&gt;)</td><td align="center">最小值</td></tr></tbody></table><p>distinct：过滤重复项</p><p>all：查询所有值</p><p>聚集函数只能用于select语句和group by 中的having子句，where表达式不允许使用</p><h2 id="五、group-by-子句"><a href="#五、group-by-子句" class="headerlink" title="五、group by 子句"></a>五、group by 子句</h2><pre><code>例：where xx = &quot;xx&quot; group by Sno having count(*)&gt;3;</code></pre><p>根据条件进行分组，并判断分组中Sno是否超过3；</p><h2 id="六、连接查询"><a href="#六、连接查询" class="headerlink" title="六、连接查询"></a>六、连接查询</h2><p>1、等值连接和非等值连接：通过“=”连接起来，对于null的数据项忽略；</p><p>2、自身连接：同一个数据表定义不同别名，并通过条件连接起来；</p><p>3、外连接（对于null的数据项不忽略）：</p><p>​            左连接（left join)：以左边的表为基准连接右边的表;</p><p>​            右连接（right join): 以右边的表为基准连接左边的表；</p><pre><code>例：from A join B on a.no=b.no //连接    from A left join B on a.no=b.no     from A right join B using(no)//去除no重复值</code></pre><p>4、多表连接：</p><p>​    where A.no = B.no and C.co = B.co;</p><p>5、嵌套查询：</p><p>​    where no in(select no from xxx) //子查询语句不能使用order by </p><h2 id="七、集合查询"><a href="#七、集合查询" class="headerlink" title="七、集合查询"></a>七、集合查询</h2><p>主要包括并操作union、交操作intersect和差操作except;</p><pre><code>例：查询语句1 union 查询语句2</code></pre><h2 id="八、带exists的谓词子查询"><a href="#八、带exists的谓词子查询" class="headerlink" title="八、带exists的谓词子查询"></a>八、带exists的谓词子查询</h2><p>带exists的谓词子查询不返回任何数据，只产生逻辑“true”或”false“。</p><pre><code>例：Student where exists (select * from SC where no = Student.no and cno =&#39;1&#39;)</code></pre><h2 id="九、其他"><a href="#九、其他" class="headerlink" title="九、其他"></a>九、其他</h2><p>1、常见按条件查询所有数据可以是按表间连接中某一字段等于进行查询。</p><p>2、having有且的意思。</p><p>3、解题技巧：</p><p>​        增加表减轻复杂度：可以重新定义表然后重命名，根据表中内容进行条件判断；</p><p>4、over函数可以直接跟在select属性后面，over函数里可以加order by进行排序，对于计算多个id的值需要进行排序计算。（比如ID，日期的加减，需要用到over对ID进行排序后才能进行计算）</p><p>5、row_number()：获取当前行数（从1开始）。</p><p>6、count(1) and count(字段)：<br>     两者的主要区别是<br> （1） count(1) 会统计表中的所有的记录数，包含字段为null 的记录。<br> （2） count(字段) 会统计该字段在表中出现的次数，忽略字段为null 的情况。即不统计字段为null 的记录。</p><p>7、循序递增的id-循序递增是值 = 固定值</p><p>​    例：2-1=1,3-2=1。</p><p>8、IFNULL() 函数用于判断第一个表达式是否为 NULL，如果为 NULL 则返回第二个参数的值，如果不为 NULL 则返回第一个参数的值。</p><p>IFNULL() 函数语法格式为：</p><pre><code>IFNULL(expression, alt_value)</code></pre><p>9、LIMIT与OFFSET的使用</p><p>limit 与 offset：从下标0开始</p><p>   offset X  是跳过X个数据</p><p>   limit Y   是选取Y个数据</p><p>   limit  X,Y 中X表示跳过X个数据，读取Y个数据</p><pre><code>from table limit 2,1;//跳过2条取出1条数据，limit后面是从第2条开始读，读取1条信息，即读取第3条数据from table limit 2 offset 1;//从第1条（不包括）数据开始取出2条数据，limit后面跟的是2条数据，offset后面是从第1条开始读取，即读取第2,3条</code></pre><p>10、SET N := N-1; “:=”表示覆盖之前的值</p><p>11、mysql中where后为什么不能使用select中定义的别名：</p><pre><code>因为mysql中sql语句的书写顺序与执行顺序不同        sql书写顺序：select 查询内容 from 表 where 查询条件        sql执行顺序: from 表 where 查询条件 select 查询内容</code></pre><p>12、limit 不支持子查询</p><pre><code>错：select * from my_table where id in (select id from my_table limit 10)解决方案：select * from my_table where id in (select t.id from (select * from my_table limit 10)as t) </code></pre>]]></content>
       
       
       <categories>
