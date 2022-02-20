@@ -243,7 +243,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '0f528e7d2fb41dce71c15e7568a23992f8aa30de1473368f9e2dedec43b8c66c';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误！');
@@ -382,6 +382,10 @@
                                 <span class="chip bg-color">后端</span>
                             </a>
                         
+                            <a href="/tags/spring/">
+                                <span class="chip bg-color">spring</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -410,21 +414,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-25
+                    2022-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    13
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -440,7 +444,51 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-装配Been"><a href="#1-装配Been" class="headerlink" title="1.装配Been"></a>1.装配Been</h4><h4 id="2-Spring-XML配置"><a href="#2-Spring-XML配置" class="headerlink" title="2.Spring XML配置"></a>2.Spring XML配置</h4><h4 id="3-面向切面AOP"><a href="#3-面向切面AOP" class="headerlink" title="3.面向切面AOP"></a>3.面向切面AOP</h4>
+                <h3 id="一、spring简介"><a href="#一、spring简介" class="headerlink" title="一、spring简介"></a>一、spring简介</h3><p>Spring是一个轻量级的控制反转(IoC)和面向切面(AOP)的容器框架。</p>
+<p>目的：解决企业应用开发的复杂性</p>
+<p>Spring框架主要由七部分组成，分别是 Spring Core、 Spring AOP、 Spring ORM、 Spring DAO、Spring Context、 Spring Web和 Spring Web MVC。</p>
+<p><img src="assets/image-20220220132625160.png" alt="image-20220220132625160"></p>
+<h4 id="1-Spring有哪些优点？（面试题）"><a href="#1-Spring有哪些优点？（面试题）" class="headerlink" title="1.Spring有哪些优点？（面试题）"></a>1.Spring有哪些优点？（面试题）</h4><p><strong>轻量级</strong>：Spring在大小和透明性方面绝对属于轻量级的，基础版本的Spring框架大约只有2MB。</p>
+<p><strong>控制反转(IoC)</strong>：Spring使用控制反转技术实现了松耦合。依赖被注入到对象，而不是创建或寻找依赖对象。</p>
+<p><strong>面向切面编程(AOP)</strong>： Spring支持面向切面编程，同时把应用的业务逻辑与系统的服务分离开来。</p>
+<p><strong>容器</strong>：Spring包含并管理应用程序对象的配置及生命周期。</p>
+<p><strong>MVC框架</strong>：Spring的web框架是一个设计优良的web MVC框架，很好的取代了一些web框架。</p>
+<p><strong>事务管理</strong>：Spring对下至本地业务上至全局业务(JAT)提供了统一的事务管理接口。</p>
+<p><strong>异常处理</strong>：Spring提供一个方便的API将特定技术的异常(由JDBC, Hibernate, 或JDO抛出)转化为一致的、Unchecked异常。</p>
+<h4 id="2-Spring-有两个核心部分：IoC-和AOP"><a href="#2-Spring-有两个核心部分：IoC-和AOP" class="headerlink" title="2.Spring 有两个核心部分：IoC 和AOP"></a>2.Spring 有两个核心部分：IoC 和AOP</h4><p>(1)IOC:控制反转，把创建对象交给spring进行管理</p>
+<p>(2)AOP：面向切面，不修改源代码进行功能增强</p>
+<h4 id="3-Spring-特点"><a href="#3-Spring-特点" class="headerlink" title="3.Spring 特点"></a>3.Spring 特点</h4><pre><code>    （1）    方便解耦，简化开发
+    （2）    Aop编程支持
+    （3）    方便程序测试
+    （4）    方便和其他框架进行整合
+    （5）    方便进行事务操作
+    （6）    降低 API开发难度</code></pre><h4 id="4-下载spring"><a href="#4-下载spring" class="headerlink" title="4.下载spring"></a>4.下载spring</h4><p><a href="https://repo.spring.io/release/org/springframework/spring/" target="_blank" rel="noopener">https://repo.spring.io/release/org/springframework/spring/</a></p>
+<h3 id="二、IOC"><a href="#二、IOC" class="headerlink" title="二、IOC"></a>二、IOC</h3><h4 id="1、什么是-IOC"><a href="#1、什么是-IOC" class="headerlink" title="1、什么是 IOC"></a>1、什么是 IOC</h4><p>（1）控制反转，把对象创建和对象之间的调用过程，交给 Spring 进行管理 </p>
+<p>（2）使用 IOC 目的：为了耦合度降低 </p>
+<p>Spring IOC 负责创建对象，管理对象（通过依赖注入（DI），装配对象，配置对象，并且管理这些对象的整个生命周期。</p>
+<p>使用IOC目的：为了降低耦合度</p>
+<h4 id="2、IOC底层（面试）"><a href="#2、IOC底层（面试）" class="headerlink" title="2、IOC底层（面试）"></a>2、IOC底层（面试）</h4><p>xml解析、工厂模式、反射</p>
+<p>ioc过程：第一步 xml配置文件，配置创建的对象</p>
+<p>​                 第二步 有service类和dao类，创建工厂类，通过xml解析并通过反射原理创建对象，实现代码的复用，进一步降低耦合度</p>
+<h4 id="3、IOC-思想基于-IOC-容器完成，IOC-容器底层就是对象工厂，Spring提供的I0C容器实现的两种方式（两个接口）（面试）"><a href="#3、IOC-思想基于-IOC-容器完成，IOC-容器底层就是对象工厂，Spring提供的I0C容器实现的两种方式（两个接口）（面试）" class="headerlink" title="3、IOC 思想基于 IOC 容器完成，IOC 容器底层就是对象工厂，Spring提供的I0C容器实现的两种方式（两个接口）（面试）"></a>3、IOC 思想基于 IOC 容器完成，IOC 容器底层就是对象工厂，Spring提供的I0C容器实现的两种方式（两个接口）（面试）</h4><p>（1）<strong>BeanFactory</strong>接口：IOC容器基本实现是Spring内部接口的使用接口，不提供给开发人员进行使用（加载配置文件时候不会创建对象，在获取对象时才会创建对象。）<br>（2）<strong>ApplicationContext</strong>接口：BeanFactory接口的子接口，提供更多更强大的功能，提供给开发人员使用（加载配置文件时候就会把在配置文件对象进行创建）推荐使用！</p>
+<h4 id="4-ApplicationContext通常的实现是什么-（面试）"><a href="#4-ApplicationContext通常的实现是什么-（面试）" class="headerlink" title="4.ApplicationContext通常的实现是什么?（面试）"></a>4.ApplicationContext通常的实现是什么?（面试）</h4><p><strong>FileSystemXmlApplicationContext</strong> ：此容器从一个XML文件中加载beans的定义，XML Bean配置文件的全路径名必须提供给它的构造函数。<br><strong>ClassPathXmlApplicationContext</strong>：此容器也从一个XML文件中加载beans的定义，这里，你需要正确设置classpath因为这个容器将在classpath里找bean配置。</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    ApplicationContext context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ClassPathXmlApplicationContext</span><span class="token punctuation">(</span><span class="token string">"bean1.xml"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//  ApplicationContext context = new FileSystemXmlApplicationContext("\..\");路径</span>
+    Student student <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">"student"</span><span class="token punctuation">,</span> Student<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>student<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    student<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="4、IOC的优点是什么？（面试）"><a href="#4、IOC的优点是什么？（面试）" class="headerlink" title="4、IOC的优点是什么？（面试）"></a>4、IOC的优点是什么？（面试）</h4><p>IOC 或 依赖注入把应用的代码量降到最低。它使应用容易测试，单元测试不再需要单例和JNDI查找机制。最小的代价和最小的侵入性使松散耦合得以实现。IOC容器支持加载服务时的饿汉式初始化和懒加载。</p>
+<h4 id="5、Bean-工厂和-Application-contexts-有什么区别？（面试）"><a href="#5、Bean-工厂和-Application-contexts-有什么区别？（面试）" class="headerlink" title="5、Bean 工厂和 Application contexts 有什么区别？（面试）"></a>5、Bean 工厂和 Application contexts 有什么区别？（面试）</h4><p>Application contexts提供一种方法处理文本消息，一个通常的做法是加载文件资源（比如镜像），它们可以向注册为监听器的bean发布事件。另外，在容器或容器内的对象上执行的那些不得不由bean工厂以程序化方式处理的操作，可以在Application contexts中以声明的方式处理。Application contexts实现了MessageSource接口，该接口的实现以可插拔的方式提供获取本地化消息的方法。</p>
+<h3 id="三、IOC-和DI"><a href="#三、IOC-和DI" class="headerlink" title="三、IOC 和DI"></a>三、IOC 和DI</h3><h4 id="1-Bean-管理操作有两种方式"><a href="#1-Bean-管理操作有两种方式" class="headerlink" title="1.Bean 管理操作有两种方式"></a>1.Bean 管理操作有两种方式</h4><p>（1）基于 xml 配置文件方式实现 （2）基于注解方式实现</p>
+<h4 id="2-什么是Spring的依赖注入（DI：Dependency-Injection-）？-面试"><a href="#2-什么是Spring的依赖注入（DI：Dependency-Injection-）？-面试" class="headerlink" title="2.什么是Spring的依赖注入（DI：Dependency Injection ）？(面试)"></a>2.什么是Spring的依赖注入（DI：Dependency Injection ）？(面试)</h4><p>依赖注入，是IOC的一个方面，是个通常的概念，它有多种解释。这概念是说你不用创建对象，而只需要描述它如何被创建。你不在代码里直接组装你的组件和服务，但是要在配置文件里描述哪些组件需要哪些服务，之后一个容器（IOC容器）负责把他们组装起来。</p>
+<h4 id="3、有哪些不同类型的IOC（依赖注入）方式？（面试）"><a href="#3、有哪些不同类型的IOC（依赖注入）方式？（面试）" class="headerlink" title="3、有哪些不同类型的IOC（依赖注入）方式？（面试）"></a>3、有哪些不同类型的IOC（依赖注入）方式？（面试）</h4><p><strong>构造器依赖注入</strong>：构造器依赖注入通过容器触发一个类的构造器来实现的，该类有一系列参数，每个参数代表一个对其他类的依赖。<br><strong>Setter方法注入</strong>：Setter方法注入是容器通过调用无参构造器或无参static工厂方法实例化bean之后，调用该bean的setter方法，即实现了基于setter的依赖注入。</p>
+<h4 id="4-哪种依赖注入方式你建议使用，构造器注入，还是-Setter方法注入？（面试）"><a href="#4-哪种依赖注入方式你建议使用，构造器注入，还是-Setter方法注入？（面试）" class="headerlink" title="4.哪种依赖注入方式你建议使用，构造器注入，还是 Setter方法注入？（面试）"></a>4.哪种依赖注入方式你建议使用，构造器注入，还是 Setter方法注入？（面试）</h4><p>你两种依赖方式都可以使用，构造器注入和Setter方法注入。最好的解决方案是用构造器参数实现强制依赖，setter方法实现可选依赖。</p>
+<h3 id="四、spring-aop"><a href="#四、spring-aop" class="headerlink" title="四、spring aop"></a>四、spring aop</h3><h3 id="五、spring事物管理"><a href="#五、spring事物管理" class="headerlink" title="五、spring事物管理"></a>五、spring事物管理</h3><p>注解</p>
+<pre><code>@RestController相当于@Controller+@ResponseBody</code></pre>
             </div>
             <hr/>
 
@@ -505,6 +553,10 @@
                             
                                 <a href="/tags/%E5%90%8E%E7%AB%AF/">
                                     <span class="chip bg-color">后端</span>
+                                </a>
+                            
+                                <a href="/tags/spring/">
+                                    <span class="chip bg-color">spring</span>
                                 </a>
                             
                         </div>
@@ -1164,7 +1216,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">6.4k</span>
+                <span class="white-color">25k</span>
             
 
             

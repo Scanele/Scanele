@@ -376,12 +376,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">基础</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-category">
+                                基础知识
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -404,7 +417,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    418
                 </div>
                 
 
@@ -427,7 +440,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h2><p>1、<strong>进程是系统进行资源分配和调度的基本单位，线程是CPU调度和分配的基本单位</strong></p>
+<p>2、<strong>一个线程可以创建和撤消另一个线程</strong>，同一进程中的多个线程之间可以并发执行。</p>
+<p>3、进程在执行过程中拥有独立的内存单元，而该进程的多个线程共享内存，从而极大地提高了程序的运行效率。 </p>
+<p>4、<strong><em>同属</em>一个进程的<em>其他的线程</em>共享进程所拥有的全部资源.</strong> </p>
+<p>5、<strong>多线程和多进程都会引发死锁</strong></p>
+<h2 id="二、线程与进程"><a href="#二、线程与进程" class="headerlink" title="二、线程与进程"></a>二、线程与进程</h2><p>1、线程和进程一样分为五个阶段：<strong>创建、就绪、运行、阻塞、终止</strong>。</p>
+<p>2、多进程是指操作系统能同时运行多个任务（程序）。<br>      多线程是指在同一程序中有多个顺序流在执行。</p>
+<p>3、</p>
+<h2 id="三、进程与线程的区别"><a href="#三、进程与线程的区别" class="headerlink" title="三、进程与线程的区别"></a>三、进程与线程的区别</h2><p>（1）调度：线程作为<strong>调度和分配</strong>的基本单位，进程作为<strong>拥有资源</strong>的基本单位</p>
+<p>（2）并发性：不仅进程之间可以并发执行，同一个进程的多个线程之间也可并发执行</p>
+<p>（3）拥有资源：进程是拥有资源的一个独立单位，<strong>线程不拥有系统资源</strong>，但可以访问隶属于进程的资源.</p>
+<p>（4）系统开销：在<strong>创建或撤消进程</strong>时，由于系统都要为之分配和回收资源，导致系统的开销明显大于创建或撤消线程时的开销</p>
+<h2 id="其他知识"><a href="#其他知识" class="headerlink" title="其他知识"></a>其他知识</h2><p>1、java中实现Runnable类的线程体应该写在run()方法体中。</p>
+
             </div>
             <hr/>
 
@@ -489,7 +515,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">基础</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -916,30 +946,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/01/18/xian-cheng-yu-jin-cheng/">
+                <a href="/2022/01/18/java-ji-chu-zhi-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="线程与进程">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Java基础知识">
                         
-                        <span class="card-title">线程与进程</span>
+                        <span class="card-title">Java基础知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            一、重写和重载1.重写(运行时的多态性)1.发生在父类与子类之间2.方法名，参数列表，返回类型（除过子类中方法的返回类型是父类中返回类型的子类）必须相同3.访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protect
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-18
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -948,7 +977,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1141,7 +1169,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">6.4k</span>
+                <span class="white-color">25k</span>
             
 
             
