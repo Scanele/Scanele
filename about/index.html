@@ -95,17 +95,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle"></i><!-- style="zoom: 0.6;"-->
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/contact" class="waves-effect waves-light">
       
       <i class="fas fa-comments"></i><!-- style="zoom: 0.6;"-->
@@ -117,11 +106,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/about" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book"></i><!-- style="zoom: 0.6;"-->
+      <i class="fas fa-user-circle"></i><!-- style="zoom: 0.6;"-->
       
-      <span>友情链接</span>
+      <span>关于</span>
     </a>
     
   </li>
@@ -197,17 +186,6 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/contact" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-comments"></i>
@@ -219,11 +197,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/about" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-user-circle"></i>
 			
-			友情链接
+			关于
 		</a>
           
         </li>
@@ -352,19 +330,11 @@
                                     
 
 
-    <a href="mailto:2793450606@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
 
 
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2793450606" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2793450606" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 
@@ -382,19 +352,11 @@
                             
 
 
-    <a href="mailto:2793450606@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
 
 
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2793450606" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2793450606" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 
@@ -458,7 +420,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10"]
+            data: ["2021-11","2021-12","2022-01","2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11"]
         },
         yAxis: {
             type: 'value',
@@ -468,7 +430,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,1,3,5,0,1,0,0,0,0,0,0,0],
+                data: [1,3,5,0,1,0,0,0,0,0,0,0,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -510,7 +472,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"笔记","value":12},{"name":"网络","value":1},{"name":"基础知识","value":2},{"name":"软件安装","value":3},{"name":"常用方法","value":3},{"name":"算法解决方案","value":1},{"name":"算法","value":1},{"name":"进制","value":1}],
+                data: [{"name":"网络","value":1},{"name":"笔记","value":12},{"name":"软件安装","value":3},{"name":"基础知识","value":2},{"name":"算法","value":1},{"name":"常用方法","value":3},{"name":"算法解决方案","value":1},{"name":"进制","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -534,7 +496,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["后端","spring","算法","mysql","前端","技能","git","office","vue","springboot"]
+                data: ["后端","spring","算法","mysql","前端","技能","git","office","springcloud","springboot"]
             }
         ],
         yAxis: [
@@ -547,7 +509,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [11,6,3,2,2,1,1,1,1,1],
+                data: [12,6,3,2,2,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -664,14 +626,14 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/%E5%90%8E%E7%AB%AF/">
-                <span class="chip center-align waves-effect waves-light chip-default">后端</span>
+            <a href="/tags/%E6%8A%80%E8%83%BD/">
+                <span class="chip center-align waves-effect waves-light chip-default">技能</span>
             </a>
             
             
             
-            <a href="/tags/%E6%8A%80%E8%83%BD/">
-                <span class="chip center-align waves-effect waves-light chip-default">技能</span>
+            <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                <span class="chip center-align waves-effect waves-light chip-default">后端</span>
             </a>
             
             
@@ -688,26 +650,14 @@
             
             
             
-            <a href="/tags/office/">
-                <span class="chip center-align waves-effect waves-light chip-default">office</span>
-            </a>
-            
-            
-            
             <a href="/tags/spring/">
                 <span class="chip center-align waves-effect waves-light chip-default">spring</span>
             </a>
             
             
             
-            <a href="/tags/vue/">
-                <span class="chip center-align waves-effect waves-light chip-default">vue</span>
-            </a>
-            
-            
-            
-            <a href="/tags/springboot/">
-                <span class="chip center-align waves-effect waves-light chip-default">springboot</span>
+            <a href="/tags/office/">
+                <span class="chip center-align waves-effect waves-light chip-default">office</span>
             </a>
             
             
@@ -718,14 +668,14 @@
             
             
             
-            <a href="/tags/base6/">
-                <span class="chip center-align waves-effect waves-light chip-default">base6</span>
+            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                <span class="chip center-align waves-effect waves-light chip-default">算法</span>
             </a>
             
             
             
-            <a href="/tags/%E5%9B%BE%E7%89%87%E4%BA%8C%E8%BF%9B%E5%88%B6/">
-                <span class="chip center-align waves-effect waves-light chip-default">图片二进制</span>
+            <a href="/tags/springboot/">
+                <span class="chip center-align waves-effect waves-light chip-default">springboot</span>
             </a>
             
             
@@ -742,8 +692,20 @@
             
             
             
-            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                <span class="chip center-align waves-effect waves-light chip-default">算法</span>
+            <a href="/tags/base6/">
+                <span class="chip center-align waves-effect waves-light chip-default">base6</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%9B%BE%E7%89%87%E4%BA%8C%E8%BF%9B%E5%88%B6/">
+                <span class="chip center-align waves-effect waves-light chip-default">图片二进制</span>
+            </a>
+            
+            
+            
+            <a href="/tags/vue/">
+                <span class="chip center-align waves-effect waves-light chip-default">vue</span>
             </a>
             
             
@@ -754,14 +716,14 @@
             
             
             
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                <span class="chip center-align waves-effect waves-light chip-default">计算机网络</span>
+            <a href="/tags/%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82/">
+                <span class="chip center-align waves-effect waves-light chip-default">跨域请求</span>
             </a>
             
             
             
-            <a href="/tags/%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82/">
-                <span class="chip center-align waves-effect waves-light chip-default">跨域请求</span>
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                <span class="chip center-align waves-effect waves-light chip-default">计算机网络</span>
             </a>
             
             
@@ -861,19 +823,11 @@
         <div class="col s12 m4 l4 social-link social-statis">
 
 
-    <a href="mailto:2793450606@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
 
 
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2793450606" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2793450606" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 
