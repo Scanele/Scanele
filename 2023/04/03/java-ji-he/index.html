@@ -1,0 +1,1529 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="集合">
+    <meta name="description" content="一个人几乎可以在任何他怀有无限热忱的事情上成功。——查尔斯·史考伯">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java集合 | 艾茶叶蛋</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">艾茶叶蛋</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home"></i><!-- style="zoom: 0.6;"-->
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags"></i><!-- style="zoom: 0.6;"-->
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark"></i><!-- style="zoom: 0.6;"-->
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive"></i><!-- style="zoom: 0.6;"-->
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments"></i><!-- style="zoom: 0.6;"-->
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle"></i><!-- style="zoom: 0.6;"-->
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" ></i><!-- style="zoom: 0.85;"-->
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">艾茶叶蛋</div>
+        <div class="logo-desc">
+            
+            一个人几乎可以在任何他怀有无限热忱的事情上成功。——查尔斯·史考伯
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java集合</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                                <span class="chip bg-color">后端</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="一、集合定义及特性"><a href="#一、集合定义及特性" class="headerlink" title="一、集合定义及特性"></a>一、集合定义及特性</h3><h4 id="1-1集合和数组区别"><a href="#1-1集合和数组区别" class="headerlink" title="1.1集合和数组区别"></a>1.1<strong>集合和数组区别</strong></h4><ol>
+<li>长度区别：数组长度固定，集合长度不固定</li>
+<li>元素区别：数组可以存储基本类型和引用类型，集合只能存储引用类型</li>
+<li>内容区别：集合可存储不同类型元素，数组存储只可单一类型元素</li>
+</ol>
+<h4 id="1-2结合特性"><a href="#1-2结合特性" class="headerlink" title="1.2结合特性"></a><strong>1.2结合特性</strong></h4><p>1.Collection – 对象之间没有指定的顺序，允许重复元素。</p>
+<p>2.Set – 对象之间没有指定的顺序，不允许重复元素</p>
+<p>\3. List– 对象之间有指定的顺序，允许重复元素,并引入位置下标。</p>
+<p>4.Map – 接口用于保存关键字（Key）和数值（Value）的集合，集合中的每个对象加入时都提供数值和关键字。Map 接口既不继承 Set 也不继承 Collection。</p>
+<p>List、Set、Map共同的实现基础是Object数组</p>
+<h4 id="1-4位置"><a href="#1-4位置" class="headerlink" title="1.4位置"></a><strong>1.4位置</strong></h4><pre><code>java.util.*;</code></pre><h3 id="二、集合类别"><a href="#二、集合类别" class="headerlink" title="二、集合类别"></a>二、集合类别</h3><h4 id="2-1Collection体系"><a href="#2-1Collection体系" class="headerlink" title="2.1Collection体系"></a><strong>2.1Collection体系</strong></h4><h5 id="2-1-1Collection父接口"><a href="#2-1-1Collection父接口" class="headerlink" title="2.1.1Collection父接口"></a>2.1.1<strong>Collection父接口</strong></h5><p>特点：代表一组任意类型的对象，无序、无下标、不能重复。</p>
+<h5 id="2-1-2Collection常用方法"><a href="#2-1-2Collection常用方法" class="headerlink" title="2.1.2Collection常用方法"></a>2.1.2<strong>Collection常用方法</strong></h5><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">add(E e)</td>
+<td align="center">添加元素</td>
+</tr>
+<tr>
+<td align="center">addAll(Collection&lt;? extends E&gt; c)</td>
+<td align="center">将指定 collection 中的所有元素都添加到此 collection 中（可选操作）。</td>
+</tr>
+<tr>
+<td align="center">remove()</td>
+<td align="center">从此 collection 中<strong>移除</strong>指定元素的<strong>单个实例</strong>，如果存在的话（可选操作）。</td>
+</tr>
+<tr>
+<td align="center">removeAll()</td>
+<td align="center"><strong>移除</strong>此 collection 中那些也包含在指定 collection 中的<strong>所有元素</strong>（可选操作）。</td>
+</tr>
+<tr>
+<td align="center">clear()</td>
+<td align="center"><strong>移除</strong>此 collection 中的<strong>所有元素</strong>（可选操作）。</td>
+</tr>
+<tr>
+<td align="center">contains(Object o)</td>
+<td align="center">如果此 collection 包含指定的元素，则返回 true。</td>
+</tr>
+<tr>
+<td align="center">containsAll(Collection&lt;?&gt; c)</td>
+<td align="center">如果此 collection 包含指定 collection 中的所有元素，则返回 true。</td>
+</tr>
+<tr>
+<td align="center">equals(Object o)</td>
+<td align="center"><strong>比较</strong>此 collection 与指定<strong>对象是否相等</strong>。</td>
+</tr>
+<tr>
+<td align="center">isEmpty()</td>
+<td align="center">如果此 collection 不包含元素，则返回 true。</td>
+</tr>
+<tr>
+<td align="center">size()</td>
+<td align="center">返回此 collection 中的元素数。</td>
+</tr>
+<tr>
+<td align="center">hashCode()</td>
+<td align="center">返回此 collection 的哈希码值。</td>
+</tr>
+<tr>
+<td align="center">toArray()</td>
+<td align="center">返回包含此 collection 中所有元素的数组。</td>
+</tr>
+<tr>
+<td align="center">toArray(T[] a)</td>
+<td align="center">返回包含此 collection 中所有元素的数组；返回数组的运行时类型与指定数组的运行时类型相同。</td>
+</tr>
+<tr>
+<td align="center">retainAll(Collection&lt;?&gt; c)</td>
+<td align="center">移除此 collection 中那些也包含在指定 collection 中的所有元素（<strong>并集</strong>）。</td>
+</tr>
+</tbody></table>
+<p>方法示例</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CollectionToArray</span> <span class="token punctuation">{</span>
+ <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+  Collection collection1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//创建一个集合对象</span>
+  collection1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"000"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//添加对象到Collection集合中</span>
+  collection1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"111"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  collection1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"222"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"集合collection1的大小："</span><span class="token operator">+</span>collection1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"集合collection1的内容："</span><span class="token operator">+</span>collection1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  collection1<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"000"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从集合collection1中移除掉 "000" 这个对象</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"集合collection1移除 000 后的内容："</span><span class="token operator">+</span>collection1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"集合collection1中是否包含000 ："</span><span class="token operator">+</span>collection1<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"000"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"集合collection1中是否包含111 ："</span><span class="token operator">+</span>collection1<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"111"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Collection collection2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  collection2<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>collection1<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//将collection1 集合中的元素全部都加到collection2中</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"集合collection2的内容："</span><span class="token operator">+</span>collection2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  collection2<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//清空集合 collection1 中的元素</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"集合collection2是否为空 ："</span><span class="token operator">+</span>collection2<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//将集合collection1转化为数组</span>
+  Object s<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span> collection1<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>s<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+运行结果为：
+集合collection1的大小：<span class="token number">3</span>
+集合collection1的内容：<span class="token punctuation">[</span><span class="token number">000</span><span class="token punctuation">,</span> <span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">222</span><span class="token punctuation">]</span>
+集合collection1移除 <span class="token number">000</span> 后的内容：<span class="token punctuation">[</span><span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">222</span><span class="token punctuation">]</span>
+集合collection1中是否包含<span class="token number">000</span> ：<span class="token boolean">false</span>
+集合collection1中是否包含<span class="token number">111</span> ：<span class="token boolean">true</span>
+集合collection2的内容：<span class="token punctuation">[</span><span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">222</span><span class="token punctuation">]</span>
+集合collection2是否为空 ：<span class="token boolean">true</span>
+<span class="token number">111</span>
+<span class="token number">222</span></code></pre>
+<h4 id="2-2List集合"><a href="#2-2List集合" class="headerlink" title="2.2List集合"></a><strong>2.2List集合</strong></h4><p>前面我们讲述的<strong>Collection接口</strong>实际上并<strong>没有</strong>直接的<strong>实现类</strong>。而List是容器的一种，表示列表的意思。当我们<strong>不知道存储的数据</strong>有多少的<strong>情况</strong>，我们就<strong>可以使用List</strong> 来<strong>完成存储数据</strong>的工作。例如前面提到的一种场景。我们想要在保存一个应用系统当前的在线用户的信息。我们就可以使用一个List来存储。因为List的最大的特点就是能够自动的根据插入的数据量来动态改变容器的大小。下面我们先看看List接口的一些常用方法。</p>
+<h5 id="2-2-1List常用方法（除Collection接口外）"><a href="#2-2-1List常用方法（除Collection接口外）" class="headerlink" title="2.2.1List常用方法（除Collection接口外）"></a>2.2.1<strong>List常用方法（除Collection接口外）</strong></h5><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">void add(int index, Object element)</td>
+<td align="center">添加对象element到位置index上</td>
+</tr>
+<tr>
+<td align="center">boolean addAll(int index, Collection collection)</td>
+<td align="center">在index位置后添加容器collection中所有的元素</td>
+</tr>
+<tr>
+<td align="center">Object remove(int index)</td>
+<td align="center">删除index位置上的元素</td>
+</tr>
+<tr>
+<td align="center">Object get(int index)</td>
+<td align="center">取出下标为index的位置的元素</td>
+</tr>
+<tr>
+<td align="center">int indexOf(Object element)</td>
+<td align="center">查找对象element 在List中<strong>第一次</strong>出现的<strong>位置</strong></td>
+</tr>
+<tr>
+<td align="center">int lastIndexOf(Object element)</td>
+<td align="center">查找对象element 在List中<strong>最后出现</strong>的<strong>位置</strong></td>
+</tr>
+<tr>
+<td align="center">Object set(int index, Object element)</td>
+<td align="center">将<strong>index</strong>位置上的对象替换为<strong>element</strong> 并返回老的元素</td>
+</tr>
+<tr>
+<td align="center">List subList(int fromIndex, int toIndex)</td>
+<td align="center">返回一个子列表List ,元素存放为从 fromIndex 到toIndex之前的一个元素。</td>
+</tr>
+</tbody></table>
+<h5 id="2-2-2ListIterator-列表迭代器"><a href="#2-2-2ListIterator-列表迭代器" class="headerlink" title="2.2.2ListIterator(列表迭代器)"></a><strong>2.2.2ListIterator(列表迭代器)</strong></h5><ol>
+<li>通过List集合的listIterator()方法得到的,所以说它是List集合特有的迭代器（逆序或者正序）</li>
+<li>用于允许程序员沿任意方向遍历列表的列表迭代器,在迭代期间修改列表,并获取列表中迭代器的当前位置</li>
+</ol>
+<pre class=" language-java"><code class="language-java">ListIterator it2 <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">listIterator</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//下标</span>
+  <span class="token keyword">while</span><span class="token punctuation">(</span>it2<span class="token punctuation">.</span><span class="token function">hasPrevious</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"previous Index="</span><span class="token operator">+</span>it2<span class="token punctuation">.</span><span class="token function">previousIndex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">",Object="</span><span class="token operator">+</span>it2<span class="token punctuation">.</span><span class="token function">previous</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span></code></pre>
+<p>加一个元素会导致新元素立刻被添加到隐式光标的前面。因此，添加元素后调用 previous() 会返回新元素，而调用 next() 则不起作用，返回添加操作之前的下一个元素。</p>
+<h5 id="2-2-3List子接口"><a href="#2-2-3List子接口" class="headerlink" title="2.2.3List子接口"></a><strong>2.2.3List子接口</strong></h5><table>
+<thead>
+<tr>
+<th align="left"><strong>实现</strong></th>
+<th align="left"><strong>简述</strong></th>
+<th align="left"><strong>操作特性</strong></th>
+<th align="left"><strong>成员要求</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>ArrayList</strong></td>
+<td align="left">提供基于索引的对成员的随机访问</td>
+<td align="left">提供快速的基于索引的成员访问，<strong>对尾部成员</strong>的<strong>增加和删除</strong>支持<strong>较好</strong></td>
+<td align="left">成员可为任意Object子类的对象</td>
+</tr>
+<tr>
+<td align="left"><strong>LinkedList</strong></td>
+<td align="left">提供基于索引的对成员的随机访问</td>
+<td align="left">对列表中<strong>任何位置</strong>的成员的<strong>增加和删除支持较好</strong>，但<strong>对</strong>基于<strong>索引</strong>的成员访问<strong>支持性能较差</strong></td>
+<td align="left">成员可为任意Object子类的对象</td>
+</tr>
+</tbody></table>
+<h4 id="2-3Array"><a href="#2-3Array" class="headerlink" title="2.3Array"></a><strong>2.3Array</strong></h4><h5 id="2-3-1构造方法"><a href="#2-3-1构造方法" class="headerlink" title="2.3.1构造方法"></a><strong>2.3.1构造方法</strong></h5><table>
+<thead>
+<tr>
+<th align="left"><strong><a href="https://jdk6.net/util/ArrayList.html#ArrayList()" target="_blank" rel="noopener"><code>ArrayList</code></a></strong><code>()</code>      构造一个初始容量为 10 的空列表。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><a href="https://jdk6.net/util/ArrayList.html#ArrayList(java.util.Collection)" target="_blank" rel="noopener"><code>ArrayList</code></a></strong><code>(</code><a href="https://jdk6.net/util/Collection.html" target="_blank" rel="noopener"><code>Collection</code></a><code>[</code>E<code>](https://jdk6.net/util/ArrayList.html)</code>&gt; c)`      构造一个包含指定 collection 的元素的列表，这些元素是按照该 collection 的迭代器返回它们的顺序排列的。</td>
+</tr>
+<tr>
+<td align="left"><strong><a href="https://jdk6.net/util/ArrayList.html#ArrayList(int)" target="_blank" rel="noopener"><code>ArrayList</code></a></strong><code>(int initialCapacity)</code>      构造一个具有指定初始容量的空列表。</td>
+</tr>
+</tbody></table>
+<h5 id="2-3-2常用方法（已知除外）"><a href="#2-3-2常用方法（已知除外）" class="headerlink" title="2.3.2常用方法（已知除外）"></a><strong>2.3.2常用方法（已知除外）</strong></h5><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">clone()</td>
+<td align="center">返回此 ArrayList 实例的浅表副本</td>
+</tr>
+<tr>
+<td align="center">ensureCapacity(int minCapacity)</td>
+<td align="center">如有必要，增加此 ArrayList 实例的容量，以确保它至少能够容纳最小容量参数所指定的元素数。</td>
+</tr>
+<tr>
+<td align="center">ensureCapacity(int minCapacity)</td>
+<td align="center">删除index位置上的元素</td>
+</tr>
+<tr>
+<td align="center">protected void removeRange(int fromIndex, int toIndex)</td>
+<td align="center">移除列表中索引在 fromIndex（包括）和 toIndex（不包括）之间的所有元素。</td>
+</tr>
+<tr>
+<td align="center">trimToSize()</td>
+<td align="center">将此 ArrayList 实例的容量调整为列表的当前大小。</td>
+</tr>
+</tbody></table>
+<h5 id="2-3-3ArrayList扩容机制（原理）"><a href="#2-3-3ArrayList扩容机制（原理）" class="headerlink" title="2.3.3ArrayList扩容机制（原理）"></a><strong>2.3.3ArrayList扩容机制（原理）</strong></h5><p>ArrayList扩容的<strong>本质</strong>就是计算出新的扩容数组的size后实例化，并<strong>将原有数组内容复制到新数组中</strong>去。（不是原数组，而是新数组然后给予数组对象地址）。</p>
+<p>默认情况下，新的容量会是原容量的<strong>1.5</strong>倍。 新容量=旧容量右移一位（相当于除于2）在加上旧容量</p>
+<p>ArrayList 的底层是用动态数组来实现的。我们初始化一个ArrayList 集合还没有添加元素时，其实它是个空数组，只有当我们添加第一个元素时，内部会调用扩容方法并返回最小容量10，也就是说ArrayList 初始化容量为10。 当前数组长度小于最小容量的长度时（前期容量是10，当添加第11个元素时就就扩容），便开始可以扩容了，ArrayList 扩容的真正计算是在一个grow()里面，新数组大小是旧数组的1.5倍，如果扩容后的新数组大小还是小于最小容量，那新数组的大小就是最小容量的大小，后面会调用一个Arrays.copyof方法，这个方法是真正实现扩容的步骤。</p>
+<h4 id="2-4LinkedList"><a href="#2-4LinkedList" class="headerlink" title="2.4LinkedList"></a><strong>2.4LinkedList</strong></h4><p>LinkedList类是一个继承于AbstractSequentialList的双向循环链表，它是非同步的，也是非线程安全的。</p>
+<p>LinkedList实现了List接口，能对它进行队列操作。</p>
+<p>LinkedList实现了Deque接口，能当作双端队列操作LinkedList实现了CloneClass接口，能进行克隆操作。</p>
+<p>LinkedList实现了SerialiableClass接口，能进行序列化操作。</p>
+<p>LinkedList <strong>是非同步的</strong>。</p>
+<h5 id="2-4-1常用方法（已知除外）"><a href="#2-4-1常用方法（已知除外）" class="headerlink" title="2.4.1常用方法（已知除外）"></a><strong>2.4.1常用方法（已知除外）</strong></h5><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">addFirst(E e)</td>
+<td align="center">将指定元素插入此列表的开头。</td>
+</tr>
+<tr>
+<td align="center">addLast(E e)</td>
+<td align="center">将指定元素添加到此列表的结尾。</td>
+</tr>
+<tr>
+<td align="center">clone()</td>
+<td align="center">返回此 LinkedList 的浅表副本。</td>
+</tr>
+<tr>
+<td align="center">Iterator<E> descendingIterator()</td>
+<td align="center">返回以逆向顺序在此双端队列的元素上进行迭代的迭代器。</td>
+</tr>
+<tr>
+<td align="center">E element()</td>
+<td align="center">获取但不移除此列表的头（第一个元素）。</td>
+</tr>
+<tr>
+<td align="center">getFirst()</td>
+<td align="center">返回此列表的第一个元素。</td>
+</tr>
+<tr>
+<td align="center">getLast()</td>
+<td align="center">返回此列表的最后一个元素。</td>
+</tr>
+<tr>
+<td align="center">boolean offer(E e)</td>
+<td align="center">将指定元素添加到此列表的末尾（最后一个元素）。</td>
+</tr>
+<tr>
+<td align="center">boolean offerFirst(E e)</td>
+<td align="center">在此列表的开头插入指定的元素。</td>
+</tr>
+<tr>
+<td align="center">boolean offerLast(E e)</td>
+<td align="center">在此列表末尾插入指定的元素。</td>
+</tr>
+<tr>
+<td align="center">E peek()</td>
+<td align="center">获取但不移除此列表的头（第一个元素）</td>
+</tr>
+<tr>
+<td align="center">E peekFirst()</td>
+<td align="center">获取但不移除此列表的第一个元素；如果此列表为空，则返回 null。</td>
+</tr>
+<tr>
+<td align="center">E peekLast()</td>
+<td align="center">获取但不移除此列表的最后一个元素；如果此列表为空，则返回 null。</td>
+</tr>
+<tr>
+<td align="center">E poll()</td>
+<td align="center">获取并移除此列表的头（第一个元素）</td>
+</tr>
+<tr>
+<td align="center">E pollFirst()</td>
+<td align="center">获取并移除此列表的第一个元素；如果此列表为空，则返回 null。</td>
+</tr>
+<tr>
+<td align="center">E pollLast()</td>
+<td align="center">获取并移除此列表的最后一个元素；如果此列表为空，则返回 null。</td>
+</tr>
+<tr>
+<td align="center">E pop()</td>
+<td align="center">从此列表所表示的堆栈处弹出一个元素。</td>
+</tr>
+<tr>
+<td align="center">void push(E e)</td>
+<td align="center">将元素推入此列表所表示的堆栈。</td>
+</tr>
+<tr>
+<td align="center">E removeFirst()</td>
+<td align="center">移除并返回此列表的第一个元素。</td>
+</tr>
+<tr>
+<td align="center">boolean removeFirstOccurrence(Object o)</td>
+<td align="center">从此列表中移除第一次出现的指定元素（从头部到尾部遍历列表时）</td>
+</tr>
+<tr>
+<td align="center">E removeLast()</td>
+<td align="center">移除并返回此列表的最后一个元素。</td>
+</tr>
+<tr>
+<td align="center">boolean removeLastOccurrence(Object o)</td>
+<td align="center">从此列表中移除最后一次出现的指定元素（从头部到尾部遍历列表时）</td>
+</tr>
+</tbody></table>
+<h4 id="3-1Set接口"><a href="#3-1Set接口" class="headerlink" title="3.1Set接口"></a><strong>3.1Set接口</strong></h4><p>特点：无序、无下标、元素不可重复</p>
+<p>方法：全部继承自Collection中的方法</p>
+<p>增、删、遍历、判断与collection一致</p>
+<h5 id="3-1-1HashSet（重点）"><a href="#3-1-1HashSet（重点）" class="headerlink" title="3.1.1HashSet（重点）"></a><strong>3.1.1HashSet（重点）</strong></h5><p>存储结构：哈希表（数组+链表+红黑树）</p>
+<p>存储过程（重复依据）</p>
+<ol>
+<li>根据hashCode计算保存的位置，如果位置为空，直接保存，若不为空，进行第二步</li>
+<li>再执行equals方法，如果equals为true，则认为是重复，否则形成链表</li>
+</ol>
+<p>特点</p>
+<ol>
+<li><strong>不允许</strong>存储<strong>重复</strong>的<strong>元素</strong></li>
+<li><strong>没有索引</strong>，没有带索引的方法，也不能使用普通的for循环遍历</li>
+<li>是一个<strong>无序</strong>的集合，存储元素和取出元素的顺序有可能不一致</li>
+<li>底层是一个哈希表结构，存储时依靠哈希值进行存储(查询的速度非常快)</li>
+</ol>
+<ul>
+<li>基于HashCode计算元素存放位置<ul>
+<li>利用31这个质数，减少散列冲突<ul>
+<li>31提高执行效率 <code>31 * i = (i &lt;&lt; 5) - i</code>转为移位操作</li>
+</ul>
+</li>
+<li>当存入元素的哈希码相同时，会调用equals进行确认，如果结果为true，则拒绝后者存入</li>
+</ul>
+</li>
+</ul>
+<p><strong>HashSet使用的是相当复杂的方式来存储元素的，使用HashSet能够最快的获取集合中的元素，效率非常高（以空间换时间）。会根据hashcode和equals来庞端是否是同一个对象，如果hashcode一样，并且equals返回true，则是同一个对象，不能重复存放。</strong></p>
+<p>重写了hashCode()和equals()方法来区分同意对象后，就不能存放同以对象了</p>
+<h5 id="3-1-2TreeSet"><a href="#3-1-2TreeSet" class="headerlink" title="3.1.2TreeSet"></a><strong>3.1.2TreeSet</strong></h5><p>特点</p>
+<ul>
+<li>基于排列顺序实现，无序不可重复，但是可以按照元素的大小顺序自动排序</li>
+<li>实现SortedSet接口，对集合元素自动排序</li>
+<li>元素对象的类型必须实现Comparable接口，指定排序规则</li>
+<li>通过CompareTo方法确定是否为重复元素</li>
+</ul>
+<p>存储结构：红黑树</p>
+<h5 id="3-1-3常用方法（已知除外）"><a href="#3-1-3常用方法（已知除外）" class="headerlink" title="3.1.3常用方法（已知除外）"></a><strong>3.1.3常用方法（已知除外）</strong></h5><table>
+<thead>
+<tr>
+<th align="left"><strong><code></code>返回类型</strong></th>
+<th align="left"><strong>方法及介绍</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#ceiling(E)" target="_blank" rel="noopener"><code>ceiling</code></a><code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>e)</code>      返回此 set 中大于等于给定元素的最小元素；如果不存在这样的元素，则返回 <code>null</code>。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/lang/Object.html" target="_blank" rel="noopener"><code>Object</code></a></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#clone()" target="_blank" rel="noopener"><code>clone</code></a><code>()</code>      返回 <code>TreeSet</code> 实例的浅表副本。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/Comparator.html" target="_blank" rel="noopener"><code>Comparator</code></a><code>[</code>E<code>](https://jdk6.net/util/TreeSet.html)</code>&gt;`</strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#comparator()" target="_blank" rel="noopener"><code>comparator</code></a><code>()</code>      返回对此 set 中的元素进行排序的比较器；如果此 set 使用其元素的<a href="https://jdk6.net/lang/Comparable.html" target="_blank" rel="noopener">自然顺序</a>，则返回 null。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/Iterator.html" target="_blank" rel="noopener"><code>Iterator</code></a><code>&lt;</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>&gt;</code></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#descendingIterator()" target="_blank" rel="noopener"><code>descendingIterator</code></a><code>()</code>      返回在此 set 元素上按降序进行迭代的迭代器。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/NavigableSet.html" target="_blank" rel="noopener"><code>NavigableSet</code></a><code>&lt;</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>&gt;</code></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#descendingSet()" target="_blank" rel="noopener"><code>descendingSet</code></a><code>()</code>      返回此 set 中所包含元素的逆序视图。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#first()" target="_blank" rel="noopener"><code>first</code></a><code>()</code>      返回此 set 中当前第一个（最低）元素。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#floor(E)" target="_blank" rel="noopener"><code>floor</code></a><code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>e)</code>      返回此 set 中小于等于给定元素的最大元素；如果不存在这样的元素，则返回 <code>null</code>。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/SortedSet.html" target="_blank" rel="noopener"><code>SortedSet</code></a><code>&lt;</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>&gt;</code></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#headSet(E)" target="_blank" rel="noopener"><code>headSet</code></a><code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>toElement)</code>      返回此 set 的部分视图，其元素严格小于 toElement。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/NavigableSet.html" target="_blank" rel="noopener"><code>NavigableSet</code></a><code>&lt;</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>&gt;</code></strong></td>
+<td align="left"><strong>[<code>headSet</code>](<a href="https://jdk6.net/util/TreeSet.html#headSet" target="_blank" rel="noopener">https://jdk6.net/util/TreeSet.html#headSet</a>(E, boolean))<code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>toElement, boolean inclusive)</code>      返回此 set 的部分视图，其元素小于（或等于，如果 <code>inclusive</code> 为 true）<code>toElement</code>。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#higher(E)" target="_blank" rel="noopener"><code>higher</code></a><code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>e)</code>      返回此 set 中严格大于给定元素的最小元素；如果不存在这样的元素，则返回 <code>null</code>。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#last()" target="_blank" rel="noopener"><code>last</code></a><code>()</code>      返回此 set 中当前最后一个（最高）元素。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#lower(E)" target="_blank" rel="noopener"><code>lower</code></a><code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>e)</code>      返回此 set 中严格小于给定元素的最大元素；如果不存在这样的元素，则返回 <code>null</code>。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#pollFirst()" target="_blank" rel="noopener"><code>pollFirst</code></a><code>()</code>      获取并移除第一个（最低）元素；如果此 set 为空，则返回 <code>null</code>。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#pollLast()" target="_blank" rel="noopener"><code>pollLast</code></a><code>()</code>      获取并移除最后一个（最高）元素；如果此 set 为空，则返回 <code>null</code>。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/NavigableSet.html" target="_blank" rel="noopener"><code>NavigableSet</code></a><code>&lt;</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>&gt;</code></strong></td>
+<td align="left"><strong>[<code>subSet</code>](<a href="https://jdk6.net/util/TreeSet.html#subSet" target="_blank" rel="noopener">https://jdk6.net/util/TreeSet.html#subSet</a>(E, boolean, E, boolean))<code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>fromElement, boolean fromInclusive,</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>toElement, boolean toInclusive)</code>      返回此 set 的部分视图，其元素范围从 <code>fromElement</code> 到 <code>toElement</code>。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/SortedSet.html" target="_blank" rel="noopener"><code>SortedSet</code></a><code>&lt;</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>&gt;</code></strong></td>
+<td align="left"><strong>[<code>subSet</code>](<a href="https://jdk6.net/util/TreeSet.html#subSet" target="_blank" rel="noopener">https://jdk6.net/util/TreeSet.html#subSet</a>(E, E))<code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>fromElement,</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>toElement)</code>      返回此 set 的部分视图，其元素从 fromElement（包括）到 toElement（不包括）。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/SortedSet.html" target="_blank" rel="noopener"><code>SortedSet</code></a><code>&lt;</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>&gt;</code></strong></td>
+<td align="left"><strong><a href="https://jdk6.net/util/TreeSet.html#tailSet(E)" target="_blank" rel="noopener"><code>tailSet</code></a><code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>fromElement)</code>      返回此 set 的部分视图，其元素大于等于 fromElement。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong><code></code><a href="https://jdk6.net/util/NavigableSet.html" target="_blank" rel="noopener"><code>NavigableSet</code></a><code>&lt;</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>&gt;</code></strong></td>
+<td align="left"><strong>[<code>tailSet</code>](<a href="https://jdk6.net/util/TreeSet.html#tailSet" target="_blank" rel="noopener">https://jdk6.net/util/TreeSet.html#tailSet</a>(E, boolean))<code>(</code><a href="https://jdk6.net/util/TreeSet.html" target="_blank" rel="noopener"><code>E</code></a><code>fromElement, boolean inclusive)</code>      返回此 set 的部分视图，其元素大于（或等于，如果 <code>inclusive</code> 为 true）<code>fromElement</code>。</strong></td>
+</tr>
+</tbody></table>
+<h5 id="3-1-4TreeSet底层原理"><a href="#3-1-4TreeSet底层原理" class="headerlink" title="3.1.4TreeSet底层原理"></a><strong>3.1.4TreeSet底层原理</strong></h5><p>TreeSet/TreeMap底层都采用的是自平衡二叉树(TreeSet底层是TreeMap): 遵循左小右大的原则存放，存放的过程也就是排序的过程</p>
+<p>遍历二叉树的三种方式: (note:左永远在右的左边)</p>
+<p><strong>前序遍历</strong>: 根左右</p>
+<p><strong>中序遍历</strong>:左根右 (满足自平衡二叉树的存放方式，中序遍历取出数据的时候就为自动排序好的数据)</p>
+<p><strong>后序遍历</strong>:左右根</p>
+<p>TreeSet/TreeMap集合采用的是：中序遍历</p>
+<p>二叉树的遍历均可以看成是递归的过程，也就是将一个树不断的划分成左子树、根、右子树的过程，直到不能再划分成一个子树</p>
+<h4 id="4-1Map集合"><a href="#4-1Map集合" class="headerlink" title="4.1Map集合"></a><strong>4.1Map集合</strong></h4><p>Map接口储存一组成对的键-值对象，提供<strong>key</strong>（键）到<strong>value</strong>（值）的<strong>映射</strong>，Map中的key<strong>不要求有序</strong>，<strong>不允许重复</strong>。value同样<strong>不要求有序</strong>，<strong>但可以重复</strong>。</p>
+<h5 id="4-1-1常用方法"><a href="#4-1-1常用方法" class="headerlink" title="4.1.1常用方法"></a><strong>4.1.1常用方法</strong></h5><table>
+<thead>
+<tr>
+<th align="left"><strong>返回类型</strong></th>
+<th align="left"><strong>介绍</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">void</td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#clear()" target="_blank" rel="noopener"><code>clear</code></a></strong><code>()</code>      从此映射中移除所有映射关系（可选操作）</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#containsKey(java.lang.Object)" target="_blank" rel="noopener"><code>containsKey</code></a></strong><code>(</code><a href="https://jdk6.net/lang/Object.html" target="_blank" rel="noopener"><code>Object</code></a><code>key)</code>      如果此映射包含指定键的映射关系，则返回 true。</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#containsValue(java.lang.Object)" target="_blank" rel="noopener"><code>containsValue</code></a></strong><code>(</code><a href="https://jdk6.net/lang/Object.html" target="_blank" rel="noopener"><code>Object</code></a><code>value)</code>      如果此映射将一个或多个键映射到指定值，则返回 true。</td>
+</tr>
+<tr>
+<td align="left"><code></code><a href="https://jdk6.net/util/Set.html" target="_blank" rel="noopener"><code>Set</code></a><code>&lt;</code><a href="https://jdk6.net/util/Map-Entry.html" target="_blank" rel="noopener"><code>Map.Entry</code></a><code>&lt;</code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>K</code></a><code>,</code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>V</code></a><code>&gt;&gt;</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#entrySet()" target="_blank" rel="noopener"><code>entrySet</code></a></strong><code>()</code>      返回此映射中包含的映射关系的 <a href="https://jdk6.net/util/Set.html" target="_blank" rel="noopener"><code>Set</code></a> 视图。</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#equals(java.lang.Object)" target="_blank" rel="noopener"><code>equals</code></a></strong><code>(</code><a href="https://jdk6.net/lang/Object.html" target="_blank" rel="noopener"><code>Object</code></a><code>o)</code>      比较指定的对象与此映射是否相等。</td>
+</tr>
+<tr>
+<td align="left"><code></code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>V</code></a></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#get(java.lang.Object)" target="_blank" rel="noopener"><code>get</code></a></strong><code>(</code><a href="https://jdk6.net/lang/Object.html" target="_blank" rel="noopener"><code>Object</code></a><code>key)</code>      返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 <code>null</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>int</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#hashCode()" target="_blank" rel="noopener"><code>hashCode</code></a></strong><code>()</code>      返回此映射的哈希码值。</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#isEmpty()" target="_blank" rel="noopener"><code>isEmpty</code></a></strong><code>()</code>      如果此映射未包含键-值映射关系，则返回 true。</td>
+</tr>
+<tr>
+<td align="left"><code></code><a href="https://jdk6.net/util/Set.html" target="_blank" rel="noopener"><code>Set</code></a><code>&lt;</code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>K</code></a><code>&gt;</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#keySet()" target="_blank" rel="noopener"><code>keySet</code></a></strong><code>()</code>      返回此映射中包含的键的 <a href="https://jdk6.net/util/Set.html" target="_blank" rel="noopener"><code>Set</code></a> 视图。</td>
+</tr>
+<tr>
+<td align="left"><code></code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>V</code></a></td>
+<td align="left"><strong>[<code>put</code>](<a href="https://jdk6.net/util/Map.html#put" target="_blank" rel="noopener">https://jdk6.net/util/Map.html#put</a>(K, V))</strong><code>(</code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>K</code></a><code>key,</code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>V</code></a><code>value)</code>      将指定的值与此映射中的指定键关联（可选操作）。</td>
+</tr>
+<tr>
+<td align="left"><code>void</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#putAll(java.util.Map)" target="_blank" rel="noopener"><code>putAll</code></a></strong><code>(</code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>Map</code></a><code>[</code>K<code>](https://jdk6.net/util/Map.html)</code>,? extends <code>[</code>V<code>](https://jdk6.net/util/Map.html)</code>&gt; m)`      从指定映射中将所有映射关系复制到此映射中（可选操作）。</td>
+</tr>
+<tr>
+<td align="left"><code></code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>V</code></a></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#remove(java.lang.Object)" target="_blank" rel="noopener"><code>remove</code></a></strong><code>(</code><a href="https://jdk6.net/lang/Object.html" target="_blank" rel="noopener"><code>Object</code></a><code>key)</code>      如果存在一个键的映射关系，则将其从此映射中移除（可选操作）。</td>
+</tr>
+<tr>
+<td align="left"><code>int</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#size()" target="_blank" rel="noopener"><code>size</code></a></strong><code>()</code>      返回此映射中的键-值映射关系数。</td>
+</tr>
+<tr>
+<td align="left"><code></code><a href="https://jdk6.net/util/Collection.html" target="_blank" rel="noopener"><code>Collection</code></a><code>&lt;</code><a href="https://jdk6.net/util/Map.html" target="_blank" rel="noopener"><code>V</code></a><code>&gt;</code></td>
+<td align="left"><strong><a href="https://jdk6.net/util/Map.html#values()" target="_blank" rel="noopener"><code>values</code></a></strong><code>()</code>      返回此映射中包含的值的 <a href="https://jdk6.net/util/Collection.html" target="_blank" rel="noopener"><code>Collection</code></a> 视图。</td>
+</tr>
+<tr>
+<td align="left">default V replace(K key, V value)</td>
+<td align="left">只有当目标映射到某个值时，才能替换指定键的条目l</td>
+</tr>
+</tbody></table>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://scanele.github.io" rel="external nofollow noreferrer">艾茶叶蛋</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://scanele.github.io/2023/04/03/java-ji-he/">https://scanele.github.io/2023/04/03/java-ji-he/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://scanele.github.io" target="_blank">艾茶叶蛋</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                                    <span class="chip bg-color">后端</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">谢谢老板!</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+		     <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                     <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+		    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/04/03/java-ji-he/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java集合">
+                        
+                        <span class="card-title">Java集合</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java集合
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                        <span class="chip bg-color">后端</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/03/03/dubbo/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="dubbo">
+                        
+                        <span class="card-title">dubbo</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            dubbo笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            艾茶叶蛋
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                        <span class="chip bg-color">后端</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="/" target="_blank">艾茶叶蛋</a>搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">51.4k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                <br>
+                <span id="busuanzi_container_site_uv">
+                    本站部分素材来源于网络，如有侵权请联系作者删除，不足之处，万望谅解!
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
